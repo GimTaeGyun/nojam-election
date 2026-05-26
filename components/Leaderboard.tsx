@@ -14,6 +14,7 @@ import {
 const TABS: { key: SortKey; label: string }[] = [
   { key: "property_desc", label: "재산 ↓" },
   { key: "age_asc",       label: "어린 순" },
+  { key: "age_desc",      label: "나이 많은 순" },
   { key: "criminal_desc", label: "전과 많은 순" },
   { key: "tax_desc",      label: "납세 많은 순" },
   { key: "run_desc",      label: "출마 베테랑" },

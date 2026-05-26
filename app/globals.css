@@ -44,7 +44,7 @@ body::before {
   100% { transform: translateX(-50%); }
 }
 .marquee-track {
-  animation: marquee 28s linear infinite;
+  animation: marquee 18s linear infinite;
 }
 
 ::selection {
