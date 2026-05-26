@@ -1,6 +1,7 @@
 import type { Region, Candidate, Race } from "./types";
 import { REGIONS_META } from "./regions";
 import governorsData from "./governors.json";
+import superintendentsData from "./superintendents.json";
 
 // ─────────────────────────────────────────────────────────────────────────
 // 노잼선거 — 후보자 데이터
@@ -8,7 +9,7 @@ import governorsData from "./governors.json";
 // 추출일: 2026-05-26
 // ─────────────────────────────────────────────────────────────────────────
 
-type RawGovernors = Record<
+type RawCandidates = Record<
   string,
   {
     regionName: string;
@@ -36,9 +37,10 @@ type RawGovernors = Record<
   }
 >;
 
-const RAW = governorsData as unknown as RawGovernors;
+const GOVERNORS = governorsData as unknown as RawCandidates;
+const SUPERINTENDENTS = superintendentsData as unknown as RawCandidates;
 
-const toCandidate = (c: RawGovernors[string]["candidates"][number]): Candidate => ({
+const toCandidate = (c: RawCandidates[string]["candidates"][number]): Candidate => ({
   number: c.number,
   name: c.name,
   hanja: c.hanja || undefined,
@@ -62,7 +64,8 @@ const toCandidate = (c: RawGovernors[string]["candidates"][number]): Candidate =
 
 const buildRaces = (regionCode: string, regionName: string): Race[] => {
   const races: Race[] = [];
-  const gov = RAW[regionCode];
+
+  const gov = GOVERNORS[regionCode];
   if (gov && gov.candidates.length) {
     races.push({
       type: "광역단체장",
@@ -70,7 +73,16 @@ const buildRaces = (regionCode: string, regionName: string): Race[] => {
       candidates: gov.candidates.map(toCandidate),
     });
   }
-  // 교육감 데이터는 추후 추가 예정 (data/superintendents.json)
+
+  const edu = SUPERINTENDENTS[regionCode];
+  if (edu && edu.candidates.length) {
+    races.push({
+      type: "교육감",
+      title: `${regionName} 교육감`,
+      candidates: edu.candidates.map(toCandidate),
+    });
+  }
+
   return races;
 };
 

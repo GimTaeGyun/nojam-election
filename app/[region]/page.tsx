@@ -125,6 +125,26 @@ export default function RegionPage({ params }: { params: { region: string } }) {
         </section>
       ))}
 
+      {/* 기초·의원 선거 안내 */}
+      <section className="my-6 border border-paper/10 rounded-lg p-4 bg-paper/[0.02]">
+        <div className="text-[11px] font-mono text-paper/40 mb-1">참고</div>
+        <p className="text-sm text-paper/70 leading-relaxed">
+          이번 선거에서는 <strong className="text-paper/90">구청장·시장·군수(기초단체장)</strong>,
+          <strong className="text-paper/90"> 시·도의원</strong>,
+          <strong className="text-paper/90"> 구·시·군의원</strong>도 같이 뽑아요.
+          후보 수가 워낙 많아 본 사이트에는 담지 못했습니다 — 본인 지역구 후보 정보는{" "}
+          <a
+            href="https://info.nec.go.kr"
+            target="_blank"
+            rel="noreferrer"
+            className="text-neon underline"
+          >
+            중앙선관위 사이트
+          </a>
+          에서 직접 확인하세요.
+        </p>
+      </section>
+
       {/* 클로징 CTA */}
       <section className="py-12 text-center border-t border-paper/10">
         <p className="text-xl sm:text-2xl font-black tracking-tightest">

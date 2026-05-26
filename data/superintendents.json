@@ -1,0 +1,1585 @@
+{
+  "gangwon": {
+    "regionName": "강원특별자치도",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "강삼영",
+        "hanja": "姜三泳",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 57,
+        "gender": "남",
+        "birth": "1968.12.04",
+        "address": "강원특별자치도 동해시 갈전길",
+        "occupation": "전국교육자치혁신연대 상임대표",
+        "education": [
+          "춘천교육대학교 교육대학원 초등교육학과(아동문학교육) 졸업(교육학석사)"
+        ],
+        "career": [
+          "(현) 강원민주진보교육감단일후보(강삼영, 최승기 참여 단일화추진위선출)"
+        ],
+        "property": "1,306,466",
+        "military": "군복무를 마친사람",
+        "taxPaid": "59,969",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 2,
+        "name": "최광익",
+        "hanja": "崔光益",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 64,
+        "gender": "남",
+        "birth": "1961.08.19",
+        "address": "강원특별자치도 춘천시 새청말길",
+        "occupation": "강원미래교육포럼 대표",
+        "education": [
+          "미국 아이오와대학교 대학원 졸업(철학박사) (1989.9. ∼ 1991.12.)"
+        ],
+        "career": [
+          "(전) 강원도교육감직인수위원장",
+          "(현) 강원미래교육포럼 대표"
+        ],
+        "property": "204,270",
+        "military": "군복무를 마친사람",
+        "taxPaid": "952",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "신경호",
+        "hanja": "申慶浩",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 73,
+        "gender": "남",
+        "birth": "1952.09.15",
+        "address": "강원특별자치도 춘천시 신동솔밭길",
+        "occupation": "공무원",
+        "education": [
+          "강원대학교 교육대학원 졸업(교육학석사)"
+        ],
+        "career": [
+          "(현)반전교조연대 단일후보(신경호,유대균,조백송,김익중 참여)",
+          "(현)강원특별자치도교육감"
+        ],
+        "property": "412,864",
+        "military": "군복무를 마친사람",
+        "taxPaid": "150,772",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "2회"
+      },
+      {
+        "number": 4,
+        "name": "박현숙",
+        "hanja": "朴賢淑",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 58,
+        "gender": "여",
+        "birth": "1967.11.17",
+        "address": "강원특별자치도 원주시 소일마을2길",
+        "occupation": "한라대학교 조교수",
+        "education": [
+          "강원대학교 일반대학원 영어영문학과 졸업(문학박사)"
+        ],
+        "career": [
+          "(현) 한라대학교 조교수",
+          "(현) 전국교수노동조합 강원지부장"
+        ],
+        "property": "36,096",
+        "military": "해당없음(비대상)",
+        "taxPaid": "5,464",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      }
+    ]
+  },
+  "gyeonggi": {
+    "regionName": "경기도",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "임태희",
+        "hanja": "任太熙",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 69,
+        "gender": "남",
+        "birth": "1956.12.01",
+        "address": "경기도 성남시 분당구 정자일로",
+        "occupation": "경기도교육감",
+        "education": [
+          "서울대학교 대학원 졸업(경영학 석사)"
+        ],
+        "career": [
+          "(현)경기도교육감",
+          "(전)고용노동부장관"
+        ],
+        "property": "5,058,456",
+        "military": "군복무를 마친사람",
+        "taxPaid": "296,884",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "6회"
+      },
+      {
+        "number": 2,
+        "name": "안민석",
+        "hanja": "安敏錫",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 59,
+        "gender": "남",
+        "birth": "1966.08.13",
+        "address": "경기도 오산시 수목원로",
+        "occupation": "명지대학교 석좌교수",
+        "education": [
+          "미국 노던콜로라도대학교 대학원 졸업(교육학박사, 1990.09~1993.05)"
+        ],
+        "career": [
+          "(현)경기도교육감 민주진보 단일후보",
+          "(전)국회 교육위원회 위원 5회 역임(5선 국회의원)"
+        ],
+        "property": "1,916,641",
+        "military": "군복무를 마친사람",
+        "taxPaid": "65,192",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "2건",
+        "runCount": "5회"
+      }
+    ]
+  },
+  "gyeongnam": {
+    "regionName": "경상남도",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "오인태",
+        "hanja": "吳仁𣳾",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 64,
+        "gender": "남",
+        "birth": "1962.04.28",
+        "address": "경상남도 김해시 율하5로",
+        "occupation": "무직",
+        "education": [
+          "경상대학교 대학원 졸업(교육학 박사)"
+        ],
+        "career": [
+          "(현)오인태 인문학서재 이응 원장",
+          "(전)창원 남정초·하동 묵계초 교장"
+        ],
+        "property": "162,580",
+        "military": "군복무를 마친사람",
+        "taxPaid": "97",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "1건",
+        "runCount": "0회"
+      },
+      {
+        "number": 2,
+        "name": "송영기",
+        "hanja": "宋永基",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 60,
+        "gender": "남",
+        "birth": "1965.07.06",
+        "address": "경상남도 창원시 성산구 용지로239번길",
+        "occupation": "무직",
+        "education": [
+          "경남대학교 대학원 체육학박사"
+        ],
+        "career": [
+          "(현)좋은교육감만들기 경남시민연대 선출 민주진보후보",
+          "(전)한국과학기술고등학교 교장"
+        ],
+        "property": "1,044,944",
+        "military": "군복무를 마친사람",
+        "taxPaid": "84,362",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "1건",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "김준식",
+        "hanja": "金峻植",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 62,
+        "gender": "남",
+        "birth": "1963.08.15",
+        "address": "경상남도 진주시 금산면 금산로",
+        "occupation": "무직",
+        "education": [
+          "경상대학교 법경대학 법학과 졸업"
+        ],
+        "career": [
+          "(현)교육대개혁국민운동본부 공동대표",
+          "(전)지수중학교 교장"
+        ],
+        "property": "234,800",
+        "military": "군복무를 마친사람",
+        "taxPaid": "114,324",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 4,
+        "name": "권순기",
+        "hanja": "權淳基",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 67,
+        "gender": "남",
+        "birth": "1959.03.28",
+        "address": "경상남도 창원시 성산구 용지로239번길",
+        "occupation": "경상국립대학교 명예교수",
+        "education": [
+          "한국과학기술원(KAIST) 화학과 졸업(이학박사)"
+        ],
+        "career": [
+          "(전)경상대학교 9대·11대 총장",
+          "(전)경상국립대학교 총장"
+        ],
+        "property": "8,398,482",
+        "military": "군복무를 마친사람",
+        "taxPaid": "422,506",
+        "taxArrears5yr": "253",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      }
+    ]
+  },
+  "gyeongbuk": {
+    "regionName": "경상북도",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "김상동",
+        "hanja": "金商東",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 67,
+        "gender": "남",
+        "birth": "1959.05.14",
+        "address": "경상북도 상주시 외남면 흔평1길",
+        "occupation": "교육인",
+        "education": [
+          "미국 위스콘신대학교 매디슨 수학 박사(1989.1.~1993.5.)"
+        ],
+        "career": [
+          "(전)경북대학교 총장",
+          "(전)경상북도인재평생교육재단 대표이사"
+        ],
+        "property": "1,463,846",
+        "military": "군복무를 마친사람",
+        "taxPaid": "151,873",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 2,
+        "name": "이용기",
+        "hanja": "李勇奇",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 59,
+        "gender": "남",
+        "birth": "1966.11.10",
+        "address": "경상북도 청도군 매전면 관하실길",
+        "occupation": "경북혁신교육연구소공감 소장",
+        "education": [
+          "경북대학교 교육대학원 석사과정 수료(교육사회 및 평생교육전공)"
+        ],
+        "career": [
+          "(전)전국교직원노동조합 경북지부장",
+          "(현)경북혁신교육연구소공감 소장"
+        ],
+        "property": "793,988",
+        "military": "군복무를 마친사람",
+        "taxPaid": "62,938",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "1건",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "임종식",
+        "hanja": "林宗植",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 70,
+        "gender": "남",
+        "birth": "1955.08.20",
+        "address": "경상북도 안동시 송현길",
+        "occupation": "경상북도교육감",
+        "education": [
+          "고려대학교 교육대학원 석사과정 교육행정전공 졸업(교육학석사)"
+        ],
+        "career": [
+          "(전)경상북도교육청 교육정책국장",
+          "(현)경상북도교육감"
+        ],
+        "property": "1,200,500",
+        "military": "군복무를 마친사람",
+        "taxPaid": "176,218",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "2회"
+      }
+    ]
+  },
+  "daegu": {
+    "regionName": "대구광역시",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "서중현",
+        "hanja": "徐重鉉",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 74,
+        "gender": "남",
+        "birth": "1951.09.14",
+        "address": "대구광역시 서구 국채보상로53길",
+        "occupation": "정치인",
+        "education": [
+          "경북대학교 대학원 철학과 박사과정 수료"
+        ],
+        "career": [
+          "(전)대구광역시 서구청장",
+          "(전)협성상업고등학교 교사"
+        ],
+        "property": "24,611",
+        "military": "군복무를 마친사람",
+        "taxPaid": "2,022",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "17회"
+      },
+      {
+        "number": 2,
+        "name": "임성무",
+        "hanja": "林性茂",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 62,
+        "gender": "남",
+        "birth": "1963.10.12",
+        "address": "대구광역시 달서구 한실로",
+        "occupation": "교육활동가",
+        "education": [
+          "대구교육대학교 초등교육과 졸업"
+        ],
+        "career": [
+          "(전)전국교직원노동조합 대구지부장",
+          "(현)대구민주진보교육포럼 대표"
+        ],
+        "property": "354,334",
+        "military": "군복무를 마친사람",
+        "taxPaid": "63,611",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "2건",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "강은희",
+        "hanja": "姜𤨒姬",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 61,
+        "gender": "여",
+        "birth": "1964.10.23",
+        "address": "대구광역시 중구 남산로13길",
+        "occupation": "대구광역시교육감",
+        "education": [
+          "경북대학교 사범대학 물리교육과 졸업"
+        ],
+        "career": [
+          "(현)대구광역시교육감",
+          "(전)여성가족부장관"
+        ],
+        "property": "28,175,768",
+        "military": "해당없음(비대상)",
+        "taxPaid": "614,842",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "3회"
+      }
+    ]
+  },
+  "daejeon": {
+    "regionName": "대전광역시",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "정상신",
+        "hanja": "鄭相信",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 64,
+        "gender": "여",
+        "birth": "1961.11.08",
+        "address": "대전광역시 중구 태평로",
+        "occupation": "대전미래교육연구회 회장",
+        "education": [
+          "충남대학교 대학원 영어영문학과 졸업(문학박사)"
+        ],
+        "career": [
+          "(전) 유성중학교 교장",
+          "(현) 대전미래교육연구회 회장"
+        ],
+        "property": "821,214",
+        "military": "해당없음(비대상)",
+        "taxPaid": "112,357",
+        "taxArrears5yr": "131",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 2,
+        "name": "맹수석",
+        "hanja": "孟守錫",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 67,
+        "gender": "남",
+        "birth": "1959.04.04",
+        "address": "대전광역시 동구 동중앙로",
+        "occupation": "충남대학교 법학전문대학원 명예교수",
+        "education": [
+          "충남대학교 대학원 졸업(법학박사)"
+        ],
+        "career": [
+          "(전) 충남대학교 법학전문대학원 교수/원장",
+          "(현) 대전광역시교육청소청심사위원회 위원"
+        ],
+        "property": "1,693,669",
+        "military": "군복무를 마친사람",
+        "taxPaid": "286,704",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "성광진",
+        "hanja": "成光鎭",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 68,
+        "gender": "남",
+        "birth": "1957.12.18",
+        "address": "대전광역시 서구 벌곡로1287번길",
+        "occupation": "교육활동가",
+        "education": [
+          "한남대학교 국어국문학과 졸업"
+        ],
+        "career": [
+          "(현) 대전교육연구소 소장",
+          "(전) 제8회 전국동시지방선거 대전교육감 후보"
+        ],
+        "property": "261,353",
+        "military": "군복무를 마친사람",
+        "taxPaid": "11,105",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "2회"
+      },
+      {
+        "number": 4,
+        "name": "오석진",
+        "hanja": "吳錫鎭",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 66,
+        "gender": "남",
+        "birth": "1959.09.17",
+        "address": "대전광역시 서구 둔산북로",
+        "occupation": "배재대학교 대외협력교수",
+        "education": [
+          "한국교원대학교 대학원 졸업(교육학 박사)"
+        ],
+        "career": [
+          "(전) 대전광역시교육청 교육국장",
+          "(전) 대전 괴정고등학교 교장"
+        ],
+        "property": "807,740",
+        "military": "군복무를 마친사람",
+        "taxPaid": "140,118",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 5,
+        "name": "진동규",
+        "hanja": "陳東圭",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 68,
+        "gender": "남",
+        "birth": "1958.04.27",
+        "address": "대전광역시 유성구 봉명로",
+        "occupation": "청정유성 정책포럼 대표",
+        "education": [
+          "인하대학교 대학원 졸업(행정학 박사)"
+        ],
+        "career": [
+          "(전) 제9대, 제10대 유성구청장",
+          "(전) 대덕대학교 교수"
+        ],
+        "property": "1,529,593",
+        "military": "군복무를 마친사람",
+        "taxPaid": "13,445",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "1건",
+        "runCount": "8회"
+      }
+    ]
+  },
+  "busan": {
+    "regionName": "부산광역시",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "정승윤",
+        "hanja": "鄭勝允",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 56,
+        "gender": "남",
+        "birth": "1969.10.03",
+        "address": "부산광역시 해운대구 해운대해변로",
+        "occupation": "부산대학교 법학전문대학원 교수",
+        "education": [
+          "부산대학교 대학원 법학과 공법전공 박사과정 수료"
+        ],
+        "career": [
+          "(현)부산대 법학전문대학원 교수",
+          "(전)국민권익위원회 부위원장 겸 사무처장"
+        ],
+        "property": "1,940,120",
+        "military": "군복무를 마친사람",
+        "taxPaid": "80,846",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "2회"
+      },
+      {
+        "number": 2,
+        "name": "최윤홍",
+        "hanja": "崔閏洪",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 57,
+        "gender": "남",
+        "birth": "1969.01.12",
+        "address": "부산광역시 부산진구 진남로",
+        "occupation": "미기재",
+        "education": [
+          "고려대학교 교육대학원 교육학석사"
+        ],
+        "career": [
+          "(전)부산광역시 교육청 부교육감",
+          "(전)부산광역시 교육감 권한대행 부교육감"
+        ],
+        "property": "1,400,035",
+        "military": "군복무를 마친사람",
+        "taxPaid": "144,410",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 3,
+        "name": "김석준",
+        "hanja": "金錫俊",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 69,
+        "gender": "남",
+        "birth": "1957.03.28",
+        "address": "부산광역시 금정구 중앙대로1685번길",
+        "occupation": "부산광역시교육감",
+        "education": [
+          "서울대학교 대학원 사회학과 졸업(문학박사)"
+        ],
+        "career": [
+          "(전)부산대학교 사범대 교수",
+          "(전)국가교육위원회 위원"
+        ],
+        "property": "778,788",
+        "military": "군복무를 마친사람",
+        "taxPaid": "65,981",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "1건",
+        "runCount": "8회"
+      }
+    ]
+  },
+  "seoul": {
+    "regionName": "서울특별시",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "김영배",
+        "hanja": "金永培",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 57,
+        "gender": "남",
+        "birth": "1968.12.05",
+        "address": "서울특별시 마포구 성미산로29길",
+        "occupation": "예원예술대학교 부총장",
+        "education": [
+          "동방문화대학원대학교 자연치유학과졸업(교육학박사)"
+        ],
+        "career": [
+          "(현)예원예술대학교 부총장",
+          "(전)상명대학교/성결대학교 교수 역임"
+        ],
+        "property": "1,065,686",
+        "military": "군복무를 마친사람",
+        "taxPaid": "66,773",
+        "taxArrears5yr": "7,394",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "3건",
+        "runCount": "0회"
+      },
+      {
+        "number": 2,
+        "name": "한만중",
+        "hanja": "韓萬中",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 62,
+        "gender": "남",
+        "birth": "1963.12.29",
+        "address": "서울특별시 마포구 대흥로8길",
+        "occupation": "전국교육자치혁신연대 상임대표",
+        "education": [
+          "서울대학교 사범대학 국어교육과 졸업"
+        ],
+        "career": [
+          "(전)노무현 대통령직인수위 자문위원(교육분야)",
+          "(전)조희연 서울시교육감 비서실장"
+        ],
+        "property": "404,535",
+        "military": "군복무를 마친사람",
+        "taxPaid": "107,634",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "1건",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "조전혁",
+        "hanja": "趙全赫",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 65,
+        "gender": "남",
+        "birth": "1960.07.14",
+        "address": "서울특별시 동작구 동작대로29길",
+        "occupation": "서울시 미래교육연구원 원장",
+        "education": [
+          "미국 위스콘신대학교 매디슨 캠퍼스 대학원 경제학 박사 (1989.12.~1991.12.)"
+        ],
+        "career": [
+          "(전)2024년 서울특별시교육감보궐선거 통합대책위원회 중도·보수후보",
+          "(전)국회의원 (교육과학기술위원회 위원)"
+        ],
+        "property": "-706,523",
+        "military": "군복무를 마친사람",
+        "taxPaid": "303,336",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "5회"
+      },
+      {
+        "number": 4,
+        "name": "이학인",
+        "hanja": "李學仁",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 53,
+        "gender": "남",
+        "birth": "1973.01.27",
+        "address": "서울특별시 광진구 뚝섬로",
+        "occupation": "신한대학교 부교수",
+        "education": [
+          "뉴욕시립대학교대학원 철학박사(경영학전공)(2006.8~2012.8)"
+        ],
+        "career": [
+          "(전)미국Hofstra대학교 회계학 조교수",
+          "(전)안진회계법인 공인회계사"
+        ],
+        "property": "846,393",
+        "military": "군복무를 마친사람",
+        "taxPaid": "15,851",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 5,
+        "name": "윤호상",
+        "hanja": "尹昊相",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 67,
+        "gender": "남",
+        "birth": "1959.04.27",
+        "address": "서울특별시 성동구 뚝섬로13길",
+        "occupation": "한양대학교 교육대학원 겸임교수",
+        "education": [
+          "숭실대학교 대학원 평생교육학과 졸업(교육학 박사)"
+        ],
+        "career": [
+          "(현)서울좋은교육감후보추대시민회의 보수단일후보(류수노,신평,윤호상,이건주 참여)",
+          "(전)서울시 중·고등학교 4개교 교장(강남중,도선고,서울미술고,신도림고)"
+        ],
+        "property": "2,346,685",
+        "military": "군복무를 마친사람",
+        "taxPaid": "51,050",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "2회"
+      },
+      {
+        "number": 6,
+        "name": "정근식",
+        "hanja": "鄭根埴",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 68,
+        "gender": "남",
+        "birth": "1957.11.15",
+        "address": "서울특별시 서초구 효령로",
+        "occupation": "서울특별시교육감",
+        "education": [
+          "서울대학교 대학원(박사과정) 사회학과 문학박사"
+        ],
+        "career": [
+          "(현)2026서울민주진보교육감단일화 추진위 추대후보",
+          "(전)노무현정부 친일반민족행위진상규명위원회 위원"
+        ],
+        "property": "3,570,865",
+        "military": "군복무를 마친사람",
+        "taxPaid": "215,029",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 7,
+        "name": "홍제남",
+        "hanja": "洪弟男",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 61,
+        "gender": "여",
+        "birth": "1965.04.26",
+        "address": "서울특별시 관악구 인헌16다길",
+        "occupation": "다같이배움연구소장",
+        "education": [
+          "한국교원대학교 교육정책전문대학원 졸업 (교육학박사)"
+        ],
+        "career": [
+          "(전)서울특별시남부교육지원청 교육지원국장",
+          "(전)오류중학교장"
+        ],
+        "property": "1,201,319",
+        "military": "해당없음(비대상)",
+        "taxPaid": "114,594",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "2건",
+        "runCount": "0회"
+      },
+      {
+        "number": 8,
+        "name": "류수노",
+        "hanja": "柳守魯",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 69,
+        "gender": "남",
+        "birth": "1956.09.02",
+        "address": "서울특별시 종로구 종로",
+        "occupation": "교수",
+        "education": [
+          "충남대학교 대학원 졸업(농학박사)"
+        ],
+        "career": [
+          "(전)한국방송통신대학교 총장",
+          "(현)한성대학교 석좌교수"
+        ],
+        "property": "3,330,592",
+        "military": "군복무를 마친사람",
+        "taxPaid": "158,200",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      }
+    ]
+  },
+  "sejong": {
+    "regionName": "세종특별자치시",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "강미애",
+        "hanja": "姜美愛",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 60,
+        "gender": "여",
+        "birth": "1965.10.10",
+        "address": "세종특별자치시 달빛로",
+        "occupation": "세종미래교육연구소 대표",
+        "education": [
+          "고려대학교 행정전문대학원 박사과정 수료(정책학과)"
+        ],
+        "career": [
+          "(전) 세종특별자치시교원단체총연합회 회장",
+          "(전) 세종도원초등학교 교장"
+        ],
+        "property": "857,360",
+        "military": "해당없음(비대상)",
+        "taxPaid": "96,314",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 2,
+        "name": "안광식",
+        "hanja": "安光植",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 62,
+        "gender": "남",
+        "birth": "1963.07.25",
+        "address": "세종특별자치시 대평로",
+        "occupation": "미기재",
+        "education": [
+          "충남대학교 대학원 졸업(교육학박사)"
+        ],
+        "career": [
+          "(전) 세종시교육청 진로교육원장",
+          "(전) 세종시교육청 교육정책연구소장"
+        ],
+        "property": "537,743",
+        "military": "군복무를 마친사람",
+        "taxPaid": "119,043",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "임전수",
+        "hanja": "林典洙",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 64,
+        "gender": "남",
+        "birth": "1961.09.07",
+        "address": "세종특별자치시 해밀3로",
+        "occupation": "교육운동가",
+        "education": [
+          "경북대학교 교육대학원 졸업(교육학 석사)"
+        ],
+        "career": [
+          "(전) 최교진 교육감 3기 인수위원 및 집행위원장",
+          "(전) 세종특별자치시교육청 교육정책국장"
+        ],
+        "property": "860,522",
+        "military": "군복무를 마친사람",
+        "taxPaid": "119,382",
+        "taxArrears5yr": "402",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "2건",
+        "runCount": "0회"
+      },
+      {
+        "number": 4,
+        "name": "원성수",
+        "hanja": "元聖洙",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 63,
+        "gender": "남",
+        "birth": "1963.04.27",
+        "address": "세종특별자치시 장군면 외암길",
+        "occupation": "미기재",
+        "education": [
+          "미국 텍사스주립대학교 알링톤 철학박사(1995.08.15.~1997.12.13.)"
+        ],
+        "career": [
+          "(전) 국립공주대학교 총장",
+          "(현) 총리실 산하 세종특별자치시 지원위원"
+        ],
+        "property": "414,151",
+        "military": "군복무를 마친사람",
+        "taxPaid": "103,581",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      }
+    ]
+  },
+  "ulsan": {
+    "regionName": "울산광역시",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "구광렬",
+        "hanja": "具廣烈",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 70,
+        "gender": "남",
+        "birth": "1956.04.06",
+        "address": "울산광역시 울주군 청량읍 문죽로",
+        "occupation": "울산대학교 명예교수",
+        "education": [
+          "멕시코국립대학교 문학박사(1984.06.~1989.01.)"
+        ],
+        "career": [
+          "(전)서울대학교 시간강사",
+          "(전)울산대학교 교수"
+        ],
+        "property": "26,943",
+        "military": "군복무를 마친사람",
+        "taxPaid": "182,671",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 2,
+        "name": "조용식",
+        "hanja": "趙容植",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 57,
+        "gender": "남",
+        "birth": "1968.10.02",
+        "address": "울산광역시 울주군 두동면 당지칠조길",
+        "occupation": "무직",
+        "education": [
+          "강원대학교 사범대학 한문교육과 졸업"
+        ],
+        "career": [
+          "(전)노옥희·천창수 울산광역시교육감 비서실장",
+          "(전)노옥희재단 이사장"
+        ],
+        "property": "1,208,028",
+        "military": "군복무를 마친사람",
+        "taxPaid": "62,040",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "3건",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "김주홍",
+        "hanja": "金周洪",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 69,
+        "gender": "남",
+        "birth": "1956.11.23",
+        "address": "울산광역시 남구 신복로22번길",
+        "occupation": "울산대학교 명예교수",
+        "education": [
+          "서울대학교 대학원 졸업(정치학박사)"
+        ],
+        "career": [
+          "(전)울산대학교 교수",
+          "(현)울산대학교 명예교수"
+        ],
+        "property": "763,309",
+        "military": "군복무를 마친사람",
+        "taxPaid": "91,887",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "2회"
+      }
+    ]
+  },
+  "incheon": {
+    "regionName": "인천광역시",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "도성훈",
+        "hanja": "都成勳",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 65,
+        "gender": "남",
+        "birth": "1960.12.10",
+        "address": "인천광역시 남동구 소래역로",
+        "occupation": "인천광역시 교육감",
+        "education": [
+          "중앙대학교 국어국문학과 졸업"
+        ],
+        "career": [
+          "(현)인천광역시 교육감",
+          "(전)동암중학교 교장"
+        ],
+        "property": "270,604",
+        "military": "군복무를 마친사람",
+        "taxPaid": "128,478",
+        "taxArrears5yr": "568",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "2회"
+      },
+      {
+        "number": 2,
+        "name": "이대형",
+        "hanja": "李大珩",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 64,
+        "gender": "남",
+        "birth": "1961.08.08",
+        "address": "인천광역시 남동구 구월로",
+        "occupation": "경인교육대학교 교수",
+        "education": [
+          "경희대학교 대학원 졸업(체육학박사)"
+        ],
+        "career": [
+          "(현)인천교육감중도보수단일후보"
+        ],
+        "property": "1,438,813",
+        "military": "군복무를 마친사람",
+        "taxPaid": "135,576",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "임병구",
+        "hanja": "林秉九",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 61,
+        "gender": "남",
+        "birth": "1964.10.02",
+        "address": "인천광역시 연수구 해돋이로84번길",
+        "occupation": "교육대개혁국민운동본부 인천준비위원장",
+        "education": [
+          "중앙대학교 국어국문학과 졸업"
+        ],
+        "career": [
+          "(현)전국교육자치혁신연대 상임대표",
+          "(전)인천광역시교육청 정책기획조정관"
+        ],
+        "property": "1,808,366",
+        "military": "군복무를 마친사람",
+        "taxPaid": "79,036",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "2건",
+        "runCount": "0회"
+      }
+    ]
+  },
+  "gwangju_jeonnam": {
+    "regionName": "전남광주통합특별시",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "강숙영",
+        "hanja": "姜叔瑩",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 64,
+        "gender": "여",
+        "birth": "1962.03.25",
+        "address": "전라남도 순천시 해룡면 기적의도서관길",
+        "occupation": "무직",
+        "education": [
+          "전남대학교 일반대학원 졸업 (교육학박사)"
+        ],
+        "career": [
+          "(현) 김대중(故김대중대통령)재단 전남지부회 탄소중립위원회 위원장",
+          "(현) 교육학 박사 전남대학교 일반대학원"
+        ],
+        "property": "1,078,559",
+        "military": "해당없음(비대상)",
+        "taxPaid": "95,654",
+        "taxArrears5yr": "212",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 2,
+        "name": "이정선",
+        "hanja": "李廷先",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 67,
+        "gender": "남",
+        "birth": "1959.02.10",
+        "address": "광주광역시 동구 무등로",
+        "occupation": "광주광역시교육감",
+        "education": [
+          "미국 럿거스 뉴저지주립대학교 교육학 박사 (1990.9.1.~1995.10.1.)"
+        ],
+        "career": [
+          "(전) 제6대 광주교육대학교 총장",
+          "(현) 광주광역시교육감"
+        ],
+        "property": "1,685,143",
+        "military": "군복무를 마친사람",
+        "taxPaid": "179,793",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "2회"
+      },
+      {
+        "number": 3,
+        "name": "장관호",
+        "hanja": "張寬鎬",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 58,
+        "gender": "남",
+        "birth": "1967.11.17",
+        "address": "전라남도 무안군 삼향읍 남악5로72번길",
+        "occupation": "무직",
+        "education": [
+          "전남대학교 사범대학 물리교육과 졸업"
+        ],
+        "career": [
+          "(현) 민주진보교육감 전남광주통합공천위원회 단일후보 (장관호, 정성홍 참여)",
+          "(현) 대통령직속 민주평화통일자문회의 자문위원"
+        ],
+        "property": "230,803",
+        "military": "군복무를 마친사람",
+        "taxPaid": "24,728",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 4,
+        "name": "김대중",
+        "hanja": "金大中",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 64,
+        "gender": "남",
+        "birth": "1961.08.13",
+        "address": "전라남도 무안군 삼향읍 남악영산길",
+        "occupation": "전라남도교육감",
+        "education": [
+          "목포대학교 대학원 국어국문학과 박사과정 수료"
+        ],
+        "career": [
+          "(현) 전라남도교육감",
+          "(전) 노무현재단 운영위원(창립위원)"
+        ],
+        "property": "-19,006",
+        "military": "군복무를 마친사람",
+        "taxPaid": "86,967",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "5회"
+      }
+    ]
+  },
+  "jeonbuk": {
+    "regionName": "전북특별자치도",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "이남호",
+        "hanja": "李南浩",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 66,
+        "gender": "남",
+        "birth": "1959.10.30",
+        "address": "전북특별자치도 전주시 덕진구 거북바우3길",
+        "occupation": "전북대학교 명예교수",
+        "education": [
+          "서울대학교 대학원 박사 졸업(임산공학)"
+        ],
+        "career": [
+          "(전)전북대학교 총장",
+          "(전)전북연구원 원장"
+        ],
+        "property": "342,942",
+        "military": "군복무를 마친사람",
+        "taxPaid": "120,615",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 2,
+        "name": "천호성",
+        "hanja": "千鎬誠",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 59,
+        "gender": "남",
+        "birth": "1967.04.22",
+        "address": "전북특별자치도 전주시 덕진구 거북바우3길",
+        "occupation": "전주교육대학교 교수",
+        "education": [
+          "나고야대학 대학원졸업 교육학 박사(2002.4.1.~2005.3.31.)"
+        ],
+        "career": [
+          "(현)전주교육대학교 교수",
+          "(전)대통령직속 국가균형발전위원회 자문위원(2021.4.1.~2022.4.6.)"
+        ],
+        "property": "976,832",
+        "military": "군복무를 마친사람",
+        "taxPaid": "135,522",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      }
+    ]
+  },
+  "jeju": {
+    "regionName": "제주특별자치도",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "송문석",
+        "hanja": "宋文石",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 62,
+        "gender": "남",
+        "birth": "1963.11.14",
+        "address": "제주특별자치도 제주시 명림로",
+        "occupation": "무직",
+        "education": [
+          "제주대학교대학원 국어국문학과 졸업 (문학박사)"
+        ],
+        "career": [
+          "(전)서귀중앙여자중학교 교장",
+          "(전)제주특별자치도교육청 교육연구관"
+        ],
+        "property": "2,618,749",
+        "military": "군복무를 마친사람",
+        "taxPaid": "129,857",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 2,
+        "name": "고의숙",
+        "hanja": "高義淑",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 56,
+        "gender": "여",
+        "birth": "1969.09.11",
+        "address": "제주특별자치도 제주시 아연로",
+        "occupation": "무직",
+        "education": [
+          "제주교육대학교 교육대학원 졸업(교육학 석사)"
+        ],
+        "career": [
+          "(전)남광초등학교 교감",
+          "(전)제12대 제주특별자치도의회교육의원"
+        ],
+        "property": "396,193",
+        "military": "해당없음(비대상)",
+        "taxPaid": "23,486",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 3,
+        "name": "김광수",
+        "hanja": "金光洙",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 73,
+        "gender": "남",
+        "birth": "1952.12.04",
+        "address": "제주특별자치도 제주시 오남로",
+        "occupation": "공무원",
+        "education": [
+          "고려대학교 교육대학원 졸업(교육학석사)"
+        ],
+        "career": [
+          "(현)제17대 제주특별자치도교육청 교육감"
+        ],
+        "property": "434,398",
+        "military": "군복무를 마친사람",
+        "taxPaid": "86,674",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "1건",
+        "runCount": "3회"
+      }
+    ]
+  },
+  "chungnam": {
+    "regionName": "충청남도",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "이병도",
+        "hanja": "李炳都",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 62,
+        "gender": "남",
+        "birth": "1964.02.22",
+        "address": "충청남도 천안시 서북구 불당14로",
+        "occupation": "충남교육연구소 소장",
+        "education": [
+          "공주대학교 대학원 교육학과 졸업(교육학 박사)"
+        ],
+        "career": [
+          "(현)충남민주진보교육감추진위원회 선정후보"
+        ],
+        "property": "1,579,373",
+        "military": "군복무를 마치지 아니한 사람",
+        "taxPaid": "104,828",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 2,
+        "name": "이병학",
+        "hanja": "李炳學",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 70,
+        "gender": "남",
+        "birth": "1956.04.23",
+        "address": "충청남도 천안시 서북구 백석로",
+        "occupation": "충남교육혁신연구소장",
+        "education": [
+          "단국대학교 사범대학 체육교육과 졸업"
+        ],
+        "career": [
+          "(전)충청남도교육위원회 3대 부의장",
+          "(현)충남교육혁신연구소장"
+        ],
+        "property": "8,771,009",
+        "military": "군복무를 마친사람",
+        "taxPaid": "18,952",
+        "taxArrears5yr": "14,989",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "1건",
+        "runCount": "2회"
+      },
+      {
+        "number": 3,
+        "name": "김영춘",
+        "hanja": "金泳春",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 66,
+        "gender": "남",
+        "birth": "1959.08.09",
+        "address": "충청남도 천안시 서북구 불당17길",
+        "occupation": "국립공주대학교 명예교수",
+        "education": [
+          "명지대학교 대학원 전기공학과 졸업(공학박사)"
+        ],
+        "career": [
+          "(현)대통령직속지방시대위원",
+          "(전)국립 공주대학교 부총장"
+        ],
+        "property": "490,567",
+        "military": "군복무를 마친사람",
+        "taxPaid": "93,031",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 4,
+        "name": "이명수",
+        "hanja": "李明洙",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 71,
+        "gender": "남",
+        "birth": "1955.02.11",
+        "address": "충청남도 아산시 문화로",
+        "occupation": "상명대학교 천안산학협력단 특임교수",
+        "education": [
+          "성균관대학교 대학원 행정학과 졸업(행정학 박사)"
+        ],
+        "career": [
+          "(전)국회의원 4선",
+          "(전)나사렛대 부총장"
+        ],
+        "property": "1,993,099",
+        "military": "군복무를 마친사람",
+        "taxPaid": "118,795",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "6회"
+      }
+    ]
+  },
+  "chungbuk": {
+    "regionName": "충청북도",
+    "candidates": [
+      {
+        "number": 1,
+        "name": "윤건영",
+        "hanja": "尹建榮",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 66,
+        "gender": "남",
+        "birth": "1960.04.28",
+        "address": "충청북도 청주시 서원구 매봉로",
+        "occupation": "충청북도교육감",
+        "education": [
+          "서울대학교 대학원 졸업(교육학박사)"
+        ],
+        "career": [
+          "(현)충청북도교육감",
+          "(전)청주교육대학교 총장"
+        ],
+        "property": "1,885,250",
+        "military": "군복무를 마친사람",
+        "taxPaid": "117,496",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      },
+      {
+        "number": 2,
+        "name": "김성근",
+        "hanja": "金盛根",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 66,
+        "gender": "남",
+        "birth": "1960.01.17",
+        "address": "충청북도 충주시 산척면 대동길",
+        "occupation": "교육전문가",
+        "education": [
+          "서울대학교 대학원 졸업(교육학석사)"
+        ],
+        "career": [
+          "(전)노무현 대통령비서실 교육문화행정관"
+        ],
+        "property": "698,963",
+        "military": "군복무를 마친사람",
+        "taxPaid": "54,463",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "0회"
+      },
+      {
+        "number": 3,
+        "name": "김진균",
+        "hanja": "金鎭均",
+        "party": "무소속",
+        "partyKey": "indep",
+        "age": 62,
+        "gender": "남",
+        "birth": "1963.06.18",
+        "address": "충청북도 청주시 흥덕구 비하로57번길",
+        "occupation": "학교현장교육전문가",
+        "education": [
+          "충북대학교 교육대학원 졸업(교육학석사)"
+        ],
+        "career": [
+          "(전)충청북도교육감후보",
+          "(전)전국시도교총회장단협의회장"
+        ],
+        "property": "1,483,699",
+        "military": "군복무를 마친사람",
+        "taxPaid": "47,091",
+        "taxArrears5yr": "0",
+        "taxArrearsCurrent": "0",
+        "criminalRecord": "없음",
+        "runCount": "1회"
+      }
+    ]
+  }
+}
