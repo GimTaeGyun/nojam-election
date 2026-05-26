@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Marquee } from "@/components/Marquee";
 import { Footer } from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const SITE_NAME = "노잼선거";
 const SITE_DESC =
@@ -59,6 +61,8 @@ export default function RootLayout({
           {children}
           <Footer />
         </main>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
