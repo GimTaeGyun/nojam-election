@@ -48,8 +48,8 @@ function buildRecords(list: Candidate[]): Record[] {
   // 전과 0건만 있는 경우 카드 숨김 (네거티브 없으면 의미 없음)
   if (parseCriminalCount(mostCrim.criminalRecord) > 0) {
     records.push({
-      emoji: "🚦",
-      label: "전과 최다",
+      emoji: "📋",
+      label: "전과 신고 최다",
       candidate: mostCrim,
       value: mostCrim.criminalRecord,
     });

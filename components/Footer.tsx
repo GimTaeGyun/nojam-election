@@ -15,8 +15,17 @@ export function Footer() {
             데이터 출처: 중앙선거관리위원회 (info.nec.go.kr) · 공공데이터포털
           </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-wrap">
           <Link href="/about" className="hover:text-neon">소개</Link>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdjGx_x7QkvQvM2-GWZ7M8KrqFCRS-Crp6CAfmNav-MhWJp7g/viewform"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-neon"
+          >
+            문의·정정
+          </a>
+          <Link href="/privacy" className="hover:text-neon">개인정보처리방침</Link>
           <a href="https://info.nec.go.kr" target="_blank" rel="noreferrer" className="hover:text-neon">선관위</a>
         </div>
       </div>
