@@ -54,7 +54,9 @@ Vercel과 유사. Build command `next build`, Publish directory는 비워두고 
 ※ 단, `output: "export"` 모드에서는 `opengraph-image.tsx` 의 dynamic OG가 빌드 타임에 고정 이미지로 굽혀집니다.
 
 ### 도메인
-프로젝트 코드 곳곳의 `https://nojam.vote` 를 실제 도메인으로 일괄 치환하세요.
+현재 배포 URL: **https://nojam-election.vercel.app**
+
+커스텀 도메인 (예: nojam.vote)을 연결하려면 Vercel 프로젝트의 Settings → Domains에서 추가하고, 코드 곳곳의 이 URL을 새 도메인으로 일괄 치환하세요.
 - `app/layout.tsx` 의 `SITE_URL`
 - `app/sitemap.ts`, `app/robots.ts`
 - `app/opengraph-image.tsx`, `app/[region]/opengraph-image.tsx` 의 푸터 표기
@@ -162,7 +164,7 @@ nojam-election/
 
 ### 트위터/X
 - 사이트 링크 + 한 줄 카피
-- 좋은 트윗 예: "지방선거 노잼인 거 인정. 그래서 만들었음. 5분이면 내 동네 후보 다 봄. nojam.vote"
+- 좋은 트윗 예: "지방선거 노잼인 거 인정. 그래서 만들었음. 5분이면 내 동네 후보 다 봄. nojam-election.vercel.app"
 
 ### 인스타
 - 카드형 디자인이라 캡쳐해서 스토리에 그대로 올리기 좋음

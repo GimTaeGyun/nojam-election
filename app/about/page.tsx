@@ -43,10 +43,11 @@ export default function AboutPage() {
         같은 분량으로 표기합니다. 후보 순서는 선관위가 부여한 기호 순입니다.
       </p>
 
-      <h2 className="text-2xl font-black tracking-tightest mt-10">연락</h2>
+      <h2 className="text-2xl font-black tracking-tightest mt-10">오류 신고·정정</h2>
       <p className="mt-3 text-paper/80 leading-relaxed">
-        오류 신고·정정 요청은 <code className="text-neon">contact@nojam.vote</code> (예시 — 도메인 확정 후 변경)
-        으로 보내주세요. 가능한 한 빨리 검토합니다.
+        후보 정보에 오류를 발견하셨거나 정정이 필요한 부분이 있으면
+        본 사이트의 <strong>GitHub 저장소 Issues 탭</strong>에 남겨주세요.
+        선관위 공개 자료 기준으로 빠르게 검토합니다.
       </p>
     </article>
   );

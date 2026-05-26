@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { REGIONS_META } from "@/data/regions";
 
-const SITE = "https://nojam.vote";
+const SITE = "https://nojam-election.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
