@@ -1,13 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getRegion, REGIONS } from "@/data/candidates";
-import { CandidateCard } from "@/components/CandidateCard";
 import { ShareBar } from "@/components/ShareBar";
 import { Disclaimer } from "@/components/Disclaimer";
-import { Recordboard } from "@/components/Recordboard";
-import { Leaderboard } from "@/components/Leaderboard";
+import { RaceTabs } from "@/components/RaceTabs";
 import { ddayLabel } from "@/lib/dday";
-import { formatThousandWonAsKrw } from "@/lib/parseNum";
 
 export function generateStaticParams() {
   return REGIONS.map((r) => ({ region: r.code }));
@@ -29,11 +26,15 @@ export default function RegionPage({ params }: { params: { region: string } }) {
   return (
     <>
       {/* 페이지 헤더 */}
-      <section className="pt-10 pb-6">
-        <Link href="/" className="text-xs text-paper/40 hover:text-neon font-mono">
-          ← 전체 지역
+      <section className="pt-6 pb-6">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-xs text-paper/70 hover:text-neon border border-paper/15 hover:border-neon/50 rounded-md px-3 py-1.5 transition-colors"
+        >
+          <span aria-hidden>←</span>
+          <span>다른 지역 보기</span>
         </Link>
-        <div className="mt-3 flex items-baseline gap-3">
+        <div className="mt-4 flex items-baseline gap-3">
           <h1 className="text-4xl sm:text-6xl font-black tracking-tightest">
             {r.shortName}
             <span className="text-neon">.</span>
@@ -59,71 +60,8 @@ export default function RegionPage({ params }: { params: { region: string } }) {
         <Disclaimer />
       </div>
 
-      {/* 각 선거별 — 1) 기네스 기록 2) 랭킹 3) 카드 그리드 */}
-      {r.races.map((race) => (
-        <section key={race.type} className="mb-14">
-          <div className="flex items-end justify-between mb-4">
-            <div>
-              <div className="text-[11px] font-mono text-neon/70">{race.type}</div>
-              <h2 className="text-2xl font-black tracking-tightest">{race.title}</h2>
-            </div>
-            <div className="text-xs text-paper/40 font-mono">
-              {race.candidates.length}명 출마
-            </div>
-          </div>
-
-          {/* 1. 기네스 기록 보드 */}
-          <Recordboard candidates={race.candidates} raceTitle={race.title} />
-
-          {/* 2. 정렬 토글 리더보드 */}
-          <Leaderboard candidates={race.candidates} />
-
-          {/* 3. 후보별 디테일 카드 */}
-          <div className="mb-4">
-            <div className="text-[11px] font-mono text-neon/70 mb-1">후보 카드</div>
-            <h3 className="text-lg font-black tracking-tightest">전체 후보 보기</h3>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {race.candidates.map((c) => (
-              <div key={`${race.type}-${c.number}`} id={`candidate-${c.number}`} className="scroll-mt-20">
-                <CandidateCard c={c} />
-              </div>
-            ))}
-          </div>
-
-          {/* 4. 보너스: 비교 한 줄 (전과/재산 한눈에) */}
-          <div className="mt-6 overflow-x-auto border border-paper/10 rounded-lg">
-            <table className="w-full text-xs">
-              <thead className="bg-paper/[0.03] text-paper/50 font-mono">
-                <tr>
-                  <th className="text-left px-3 py-2 font-normal">기호</th>
-                  <th className="text-left px-3 py-2 font-normal">정당</th>
-                  <th className="text-left px-3 py-2 font-normal">전과</th>
-                  <th className="text-left px-3 py-2 font-normal">재산</th>
-                  <th className="text-left px-3 py-2 font-normal">납세</th>
-                </tr>
-              </thead>
-              <tbody>
-                {race.candidates.map((c) => (
-                  <tr key={`row-${c.number}`} className="border-t border-paper/5">
-                    <td className="px-3 py-2 font-mono text-paper/70">{c.number}</td>
-                    <td className="px-3 py-2">{c.party}</td>
-                    <td
-                      className={`px-3 py-2 ${
-                        c.criminalRecord !== "없음" ? "text-neon" : "text-paper/80"
-                      }`}
-                    >
-                      {c.criminalRecord}
-                    </td>
-                    <td className="px-3 py-2 text-paper/80">{formatThousandWonAsKrw(c.property)}</td>
-                    <td className="px-3 py-2 text-paper/80">{formatThousandWonAsKrw(c.taxPaid)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      ))}
+      {/* 탭 전환: 시·도지사 ↔ 교육감 */}
+      <RaceTabs races={r.races} />
 
       {/* 기초·의원 선거 안내 */}
       <section className="my-6 border border-paper/10 rounded-lg p-4 bg-paper/[0.02]">

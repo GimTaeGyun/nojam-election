@@ -1,4 +1,5 @@
 import { daysUntilElection, ddayLabel } from "@/lib/dday";
+import { Countdown } from "./Countdown";
 
 export function DDayHero() {
   const d = daysUntilElection();
@@ -22,11 +23,11 @@ export function DDayHero() {
         팩트만, 빠르게.
       </p>
 
-      <div className="mt-8 inline-flex items-center gap-4 border border-neon/40 px-5 py-3 rounded-lg">
-        <span className="font-mono text-neon text-3xl sm:text-4xl font-black">{label}</span>
-        <div className="text-xs text-paper/60 leading-tight">
-          <div>6.3 수요일</div>
-          <div className="text-paper/40">투표 마감 18시</div>
+      <div className="mt-8 border border-neon/40 px-5 py-4 rounded-lg inline-block">
+        <div className="text-[10px] font-mono text-neon/70 mb-1">투표일까지 남은 시간</div>
+        <Countdown />
+        <div className="text-xs text-paper/60 leading-tight mt-2">
+          6.3 (수) · <span className="text-paper/40">투표 06–18시</span>
         </div>
       </div>
     </section>
