@@ -4,23 +4,10 @@ import { getRegion, REGIONS } from "@/data/candidates";
 import { CandidateCard } from "@/components/CandidateCard";
 import { ShareBar } from "@/components/ShareBar";
 import { Disclaimer } from "@/components/Disclaimer";
+import { Recordboard } from "@/components/Recordboard";
+import { Leaderboard } from "@/components/Leaderboard";
 import { ddayLabel } from "@/lib/dday";
-
-// 천원 단위 raw 문자열 ("1,823,897") → "18억 2,389만원"
-function fmtKrw(raw?: string): string {
-  if (!raw) return "—";
-  const num = Number(raw.replace(/[^\d-]/g, ""));
-  if (!Number.isFinite(num)) return raw;
-  const won = num * 1000;
-  if (won === 0) return "0원";
-  const eok = Math.floor(won / 100_000_000);
-  const man = Math.floor((won % 100_000_000) / 10_000);
-  const parts: string[] = [];
-  if (eok > 0) parts.push(`${eok.toLocaleString()}억`);
-  if (man > 0) parts.push(`${man.toLocaleString()}만`);
-  if (parts.length === 0) parts.push(`${won.toLocaleString()}`);
-  return `${parts.join(" ")}원`;
-}
+import { formatThousandWonAsKrw } from "@/lib/parseNum";
 
 export function generateStaticParams() {
   return REGIONS.map((r) => ({ region: r.code }));
@@ -72,9 +59,9 @@ export default function RegionPage({ params }: { params: { region: string } }) {
         <Disclaimer />
       </div>
 
-      {/* 각 선거별 카드 그리드 */}
+      {/* 각 선거별 — 1) 기네스 기록 2) 랭킹 3) 카드 그리드 */}
       {r.races.map((race) => (
-        <section key={race.type} className="mb-12">
+        <section key={race.type} className="mb-14">
           <div className="flex items-end justify-between mb-4">
             <div>
               <div className="text-[11px] font-mono text-neon/70">{race.type}</div>
@@ -85,14 +72,27 @@ export default function RegionPage({ params }: { params: { region: string } }) {
             </div>
           </div>
 
+          {/* 1. 기네스 기록 보드 */}
+          <Recordboard candidates={race.candidates} raceTitle={race.title} />
+
+          {/* 2. 정렬 토글 리더보드 */}
+          <Leaderboard candidates={race.candidates} />
+
+          {/* 3. 후보별 디테일 카드 */}
+          <div className="mb-4">
+            <div className="text-[11px] font-mono text-neon/70 mb-1">후보 카드</div>
+            <h3 className="text-lg font-black tracking-tightest">전체 후보 보기</h3>
+          </div>
           <div className="grid sm:grid-cols-2 gap-3">
             {race.candidates.map((c) => (
-              <CandidateCard key={`${race.type}-${c.number}`} c={c} />
+              <div key={`${race.type}-${c.number}`} id={`candidate-${c.number}`} className="scroll-mt-20">
+                <CandidateCard c={c} />
+              </div>
             ))}
           </div>
 
-          {/* 보너스: 비교 한 줄 (전과/재산 한눈에) */}
-          <div className="mt-4 overflow-x-auto border border-paper/10 rounded-lg">
+          {/* 4. 보너스: 비교 한 줄 (전과/재산 한눈에) */}
+          <div className="mt-6 overflow-x-auto border border-paper/10 rounded-lg">
             <table className="w-full text-xs">
               <thead className="bg-paper/[0.03] text-paper/50 font-mono">
                 <tr>
@@ -115,8 +115,8 @@ export default function RegionPage({ params }: { params: { region: string } }) {
                     >
                       {c.criminalRecord}
                     </td>
-                    <td className="px-3 py-2 text-paper/80">{fmtKrw(c.property)}</td>
-                    <td className="px-3 py-2 text-paper/80">{fmtKrw(c.taxPaid)}</td>
+                    <td className="px-3 py-2 text-paper/80">{formatThousandWonAsKrw(c.property)}</td>
+                    <td className="px-3 py-2 text-paper/80">{formatThousandWonAsKrw(c.taxPaid)}</td>
                   </tr>
                 ))}
               </tbody>
