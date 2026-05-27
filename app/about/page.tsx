@@ -1,7 +1,10 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "소개 · 노잼선거가 뭐임?",
+  title: "노잼선거 소개 — 어떻게 만들었나, 어떤 자료를 쓰나",
+  description:
+    "노잼선거는 시민이 만든 비당파적 선거 정보 사이트입니다. 중앙선거관리위원회 공개 자료를 기반으로 2026 지방선거 후보 정보를 정리합니다.",
+  alternates: { canonical: "https://nojam.kr/about" },
 };
 
 export default function AboutPage() {

@@ -4,9 +4,37 @@ import { ddayLabel } from "@/lib/dday";
 import type { Candidate } from "@/data/types";
 
 export const metadata = {
-  title: "정당별 출마자 전과 신고 현황",
+  title: "정당별 출마자 전과 신고 현황 — 2026 지방선거 시·도지사",
   description:
-    "2026 지방선거 시·도지사 후보 정당별 전과 신고 비율. 선관위 공개 자료 기준. 한 곳에서 다 본다.",
+    "2026 6월 3일 지방선거, 더불어민주당·국민의힘·진보당·개혁신당 등 정당별 시·도지사 후보 54명의 전과 신고 비율과 건수. 선관위 공식 자료 전수 집계.",
+  keywords: [
+    "정당별 전과",
+    "정당별 출마자",
+    "지방선거 전과",
+    "후보자 전과 통계",
+    "더불어민주당 전과",
+    "국민의힘 전과",
+    "진보당 전과",
+    "시·도지사 후보 전과",
+    "노잼선거",
+    "2026 지방선거",
+  ],
+  openGraph: {
+    title: "정당별 출마자 전과 신고 현황 — 2026 지방선거 시·도지사",
+    description:
+      "정당별 시·도지사 후보 54명의 전과 신고 비율과 건수. 선관위 공식 자료 전수 집계. 한 곳에서 다 본다.",
+    type: "website",
+    locale: "ko_KR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "정당별 출마자 전과 신고 현황 — 노잼선거",
+    description:
+      "정당별 시·도지사 후보 54명의 전과 신고 비율. 한 곳에서 다 본다.",
+  },
+  alternates: {
+    canonical: "https://nojam.kr/stats/parties",
+  },
 };
 
 // PartyChip과 동일한 색

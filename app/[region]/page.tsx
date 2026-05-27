@@ -13,9 +13,39 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { region: string } }) {
   const r = getRegion(params.region);
   if (!r) return {};
+  const govCount = r.races.find((x) => x.type === "광역단체장")?.candidates.length ?? 0;
+  const eduCount = r.races.find((x) => x.type === "교육감")?.candidates.length ?? 0;
+  const title = `${r.shortName} 시·도지사·교육감 후보 비교 — 재산·전과·납세 한눈에`;
+  const description = `2026 지방선거 ${r.name} 시·도지사 ${govCount}명·교육감 ${eduCount}명 후보의 재산·전과·납세·학력·경력을 1분 안에 정렬·비교. 선관위 공식 자료 기반.`;
   return {
-    title: `${r.name} 후보 정리`,
-    description: `${r.name} 시·도지사·교육감 후보 누군지 30초 만에 보기. 정치 노잼인 거 아는데, 1분만.`,
+    title,
+    description,
+    keywords: [
+      `${r.shortName} 후보`,
+      `${r.shortName} 시장 후보`,
+      `${r.shortName} 도지사 후보`,
+      `${r.shortName} 시·도지사`,
+      `${r.shortName} 교육감 후보`,
+      `${r.shortName} 후보 비교`,
+      `${r.shortName} 후보 전과`,
+      `${r.shortName} 후보 재산`,
+      `${r.name} 2026 지방선거`,
+      "노잼선거",
+    ],
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      locale: "ko_KR",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: {
+      canonical: `https://nojam.kr/${r.code}`,
+    },
   };
 }
 

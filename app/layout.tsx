@@ -9,40 +9,66 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const SITE_NAME = "노잼선거";
+const SITE_TITLE = "노잼선거 — 2026 지방선거 후보 재산·전과·납세 한눈에";
 const SITE_DESC =
-  "정치 노잼인 거 아는데, 1분만. 2026 지방선거 우리 동네 후보 팩트 정리.";
+  "2026년 6월 3일 제9회 지방선거, 우리 동네 시·도지사·교육감 후보의 재산·전과·납세·학력·경력을 1분 안에 한눈에 비교. 중앙선관위 공식 자료 기반 시민 정보 사이트.";
 const SITE_URL = "https://nojam.kr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} · 정치 노잼인 거 아는데, 1분만`,
+    default: SITE_TITLE,
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESC,
   keywords: [
     "노잼선거",
     "2026 지방선거",
-    "6월 3일 선거",
+    "6월 3일 지방선거",
+    "제9회 전국동시지방선거",
+    "후보자 정보",
+    "후보 재산",
+    "후보 전과",
+    "후보자 전과 조회",
+    "후보 전과기록",
     "시도지사 후보",
+    "시도지사 후보 비교",
     "교육감 후보",
-    "후보 비교",
-    "선관위",
+    "서울시장 후보",
+    "부산시장 후보",
+    "경기도지사 후보",
+    "정당별 전과",
+    "선관위 후보자정보",
+    "후보자 명부",
   ],
+  authors: [{ name: "노잼선거" }],
+  category: "politics",
   openGraph: {
     type: "website",
     locale: "ko_KR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — 정치 노잼인 거 아는데, 1분만`,
+    title: SITE_TITLE,
     description: SITE_DESC,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — 정치 노잼인 거 아는데, 1분만`,
+    title: SITE_TITLE,
     description: SITE_DESC,
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
 };
 
 export const viewport: Viewport = {

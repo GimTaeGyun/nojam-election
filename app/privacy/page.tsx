@@ -1,7 +1,11 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "개인정보처리방침",
+  title: "개인정보처리방침 — 노잼선거",
+  description:
+    "노잼선거는 어떠한 개인정보도 직접 수집하지 않습니다. 사용 중인 외부 서비스와 처리 방침을 투명하게 안내합니다.",
+  alternates: { canonical: "https://nojam.kr/privacy" },
+  robots: { index: false, follow: true },
 };
 
 export default function PrivacyPage() {
