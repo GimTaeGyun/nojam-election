@@ -31,6 +31,12 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3 shrink-0">
           <Link
+            href="/stats/wealth"
+            className="hidden sm:inline text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
+          >
+            재산 순위
+          </Link>
+          <Link
             href="/stats/parties"
             className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
           >
@@ -38,7 +44,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/about"
-            className="text-xs text-paper/50 hover:text-paper/90 transition-colors"
+            className="hidden sm:inline text-xs text-paper/50 hover:text-paper/90 transition-colors"
           >
             소개
           </Link>

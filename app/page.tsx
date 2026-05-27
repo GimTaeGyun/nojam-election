@@ -3,6 +3,7 @@ import { RegionGrid } from "@/components/RegionGrid";
 import { WhyNojam } from "@/components/WhyNojam";
 import { Disclaimer } from "@/components/Disclaimer";
 import { PartyStatsTeaser } from "@/components/PartyStatsTeaser";
+import { WealthTeaser } from "@/components/WealthTeaser";
 
 export default function HomePage() {
   return (
@@ -12,7 +13,16 @@ export default function HomePage() {
         <Disclaimer />
       </div>
       <RegionGrid />
-      <PartyStatsTeaser />
+
+      {/* 두 차별 콘텐츠 — 정당별 전과 / 전국 재산 순위 */}
+      <section className="py-12 border-t border-paper/10">
+        <div className="text-[11px] font-mono text-neon/70 mb-3">차별 콘텐츠</div>
+        <div className="grid md:grid-cols-2 gap-3">
+          <PartyStatsTeaser />
+          <WealthTeaser />
+        </div>
+      </section>
+
       <WhyNojam />
 
       {/* 가벼운 클로징 카피 */}
