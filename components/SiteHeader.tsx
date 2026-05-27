@@ -1,16 +1,17 @@
 import Link from "next/link";
 import { ddayLabel } from "@/lib/dday";
+import { HeaderVoteMini, HeaderVoteMiniMobile } from "./HeaderVoteMini";
 
 // 모든 페이지 상단에 깔리는 글로벌 헤더
-// - 로고(홈 링크) + D-Day chip
+// - 로고(홈 링크) + 가운데 미니 투표 카운터 + 우측 메뉴 + D-Day
 // - 마키 띠 아래에 위치
 export function SiteHeader() {
   return (
     <header className="border-b border-paper/10 bg-ink/95 backdrop-blur-sm sticky top-0 z-30">
-      <div className="max-w-5xl mx-auto px-5 sm:px-8 h-12 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 h-12 flex items-center justify-between gap-3">
         <Link
           href="/"
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-2 group shrink-0"
           aria-label="노잼선거 홈으로"
         >
           <span
@@ -22,7 +23,13 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-3">
+        {/* 가운데 미니 투표 카운터 */}
+        <div className="flex-1 flex items-center justify-center">
+          <HeaderVoteMini />
+          <HeaderVoteMiniMobile />
+        </div>
+
+        <div className="flex items-center gap-3 shrink-0">
           <Link
             href="/stats/parties"
             className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
