@@ -15,7 +15,7 @@ export function DDayHero() {
         정치 <span className="text-neon">노잼</span>인 거 <br className="sm:hidden" />
         아는데
         <br />
-        그래도 <span className="text-neon">5분</span>만.
+        그래도 <span className="text-neon">1분</span>만.
       </h1>
 
       <p className="mt-6 text-sm sm:text-base text-paper/70 max-w-xl">

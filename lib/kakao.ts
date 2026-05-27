@@ -24,7 +24,7 @@ export function shareToKakao(input: KakaoShareInput): boolean {
       objectType: "feed",
       content: {
         title: input.title,
-        description: input.description ?? "정치 노잼인 거 아는데, 5분만.",
+        description: input.description ?? "정치 노잼인 거 아는데, 1분만.",
         imageUrl: input.imageUrl ?? "https://nojam.kr/opengraph-image",
         link: {
           mobileWebUrl: input.url,

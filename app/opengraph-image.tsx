@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { ddayLabel } from "@/lib/dday";
 
 export const runtime = "edge";
-export const alt = "노잼선거 — 정치 노잼인 거 아는데, 5분만";
+export const alt = "노잼선거 — 정치 노잼인 거 아는데, 1분만";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,7 +54,7 @@ export default async function Image() {
           </span>
           <span>아는데,</span>
           <span>
-            그래도 <span style={{ color: "#d4ff00" }}>5분</span>만.
+            그래도 <span style={{ color: "#d4ff00" }}>1분</span>만.
           </span>
         </div>
 

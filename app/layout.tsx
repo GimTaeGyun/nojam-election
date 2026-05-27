@@ -9,13 +9,13 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const SITE_NAME = "노잼선거";
 const SITE_DESC =
-  "정치 노잼인 거 아는데, 5분만. 2026 지방선거 우리 동네 후보 팩트 정리.";
+  "정치 노잼인 거 아는데, 1분만. 2026 지방선거 우리 동네 후보 팩트 정리.";
 const SITE_URL = "https://nojam.kr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} · 정치 노잼인 거 아는데, 5분만`,
+    default: `${SITE_NAME} · 정치 노잼인 거 아는데, 1분만`,
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESC,
@@ -33,12 +33,12 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — 정치 노잼인 거 아는데, 5분만`,
+    title: `${SITE_NAME} — 정치 노잼인 거 아는데, 1분만`,
     description: SITE_DESC,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — 정치 노잼인 거 아는데, 5분만`,
+    title: `${SITE_NAME} — 정치 노잼인 거 아는데, 1분만`,
     description: SITE_DESC,
   },
   robots: { index: true, follow: true },

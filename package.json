@@ -2,7 +2,7 @@
   "name": "nojam-election",
   "version": "0.1.0",
   "private": true,
-  "description": "노잼선거 - 정치 노잼인 거 아는데, 5분만. 2026 지방선거 팩트 기반 후보 정리.",
+  "description": "노잼선거 - 정치 노잼인 거 아는데, 1분만. 2026 지방선거 팩트 기반 후보 정리.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -34,7 +34,7 @@ export default function AboutPage() {
       <h2 className="text-2xl font-black tracking-tightest mt-10">왜 '노잼'?</h2>
       <p className="mt-3 text-paper/80 leading-relaxed">
         솔직히 정치 컨텐츠 노잼인 거 인정. 다른 사이트들이 "투표는 민주주의의 꽃!"이라고
-        외칠 때 우리는 그냥 "5분만 보고 가요"라고 말합니다. 그게 통할 거라 믿어서요.
+        외칠 때 우리는 그냥 "1분만 보고 가요"라고 말합니다. 그게 통할 거라 믿어서요.
       </p>
 
       <h2 className="text-2xl font-black tracking-tightest mt-10">중립성</h2>

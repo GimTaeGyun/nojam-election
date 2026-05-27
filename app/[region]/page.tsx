@@ -15,7 +15,7 @@ export function generateMetadata({ params }: { params: { region: string } }) {
   if (!r) return {};
   return {
     title: `${r.name} 후보 정리`,
-    description: `${r.name} 시·도지사·교육감 후보 누군지 30초 만에 보기. 정치 노잼인 거 아는데, 5분만.`,
+    description: `${r.name} 시·도지사·교육감 후보 누군지 30초 만에 보기. 정치 노잼인 거 아는데, 1분만.`,
   };
 }
 
