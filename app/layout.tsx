@@ -10,7 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const SITE_NAME = "노잼선거";
 const SITE_DESC =
   "정치 노잼인 거 아는데, 5분만. 2026 지방선거 우리 동네 후보 팩트 정리.";
-const SITE_URL = "https://nojam-election.vercel.app"; // 커스텀 도메인 사면 변경
+const SITE_URL = "https://nojam.kr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

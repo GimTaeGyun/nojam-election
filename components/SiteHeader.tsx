@@ -24,6 +24,12 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <Link
+            href="/stats/parties"
+            className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
+          >
+            정당별 분석
+          </Link>
+          <Link
             href="/about"
             className="text-xs text-paper/50 hover:text-paper/90 transition-colors"
           >

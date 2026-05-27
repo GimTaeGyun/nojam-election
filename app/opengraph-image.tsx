@@ -71,7 +71,7 @@ export default async function Image() {
             우리 동네 시·도지사 + 교육감 후보 · 팩트만 깔끔하게
           </span>
           <span style={{ color: "#d4ff00", fontFamily: "monospace" }}>
-            nojam-election.vercel.app
+            nojam.kr
           </span>
         </div>
       </div>

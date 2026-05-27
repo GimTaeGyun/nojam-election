@@ -2,6 +2,7 @@ import { DDayHero } from "@/components/DDayHero";
 import { RegionGrid } from "@/components/RegionGrid";
 import { WhyNojam } from "@/components/WhyNojam";
 import { Disclaimer } from "@/components/Disclaimer";
+import { PartyStatsTeaser } from "@/components/PartyStatsTeaser";
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
         <Disclaimer />
       </div>
       <RegionGrid />
+      <PartyStatsTeaser />
       <WhyNojam />
 
       {/* 가벼운 클로징 카피 */}

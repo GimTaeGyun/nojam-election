@@ -1,6 +1,6 @@
 # 노잼선거 — 홍보 카피 종합 패키지
 
-> URL: **https://nojam-election.vercel.app**
+> URL: **https://nojam.kr**
 > 선거일: 2026.06.03 (수)
 
 ---
@@ -25,7 +25,7 @@
 선관위 공식 자료만 정리함.
 재산·전과·납세·학력·경력 30초면 끝.
 
-🔗 https://nojam-election.vercel.app
+🔗 https://nojam.kr
 ```
 
 ### 사례 던지기 (D-5)
@@ -36,7 +36,7 @@
 
 당신은 누가 1위인지 알고 있었나?
 
-🔗 https://nojam-election.vercel.app/seoul
+🔗 https://nojam.kr/seoul
 ```
 
 ### 자기인식 트윗 (D-4)
@@ -48,7 +48,7 @@
 "이 사람 재산 얼마, 전과 몇 건" 표만 보여줌.
 
 5분이면 우리 동네 끝남.
-🔗 https://nojam-election.vercel.app
+🔗 https://nojam.kr
 ```
 
 ### 사전투표 시작 (D-3, 5/31)
@@ -59,7 +59,7 @@
 근데 누구 뽑을지는 정했나?
 30초만에 비교 가능함.
 
-🔗 https://nojam-election.vercel.app
+🔗 https://nojam.kr
 ```
 
 ### 마지막 푸시 (D-1, 6/2 저녁)
@@ -72,7 +72,7 @@
 30초 만에 알 수 있음.
 
 투표 안 가면 어쩔 수 없고~
-🔗 https://nojam-election.vercel.app
+🔗 https://nojam.kr
 ```
 
 ### 당일 아침 (D-day, 6/3 06:00)
@@ -80,7 +80,7 @@
 오늘 06시 ~ 18시.
 투표소 가기 전 1분만 봐도 됨.
 
-🔗 https://nojam-election.vercel.app
+🔗 https://nojam.kr
 
 투표소 위치 모르면 → info.nec.go.kr
 ```
@@ -94,7 +94,7 @@
 야 너 우리 동네 시장 후보 누군지 알아?
 
 이거 봐봐 5분이면 다 봄
-https://nojam-election.vercel.app
+https://nojam.kr
 ```
 
 ### 가족 단톡방 (좀 더 정제)
@@ -103,7 +103,7 @@ https://nojam-election.vercel.app
 선관위 자료만 깔끔하게 봤어요.
 
 엄마/아빠 우리 동네 후보 같이 보면 좋을듯
-https://nojam-election.vercel.app
+https://nojam.kr
 ```
 
 ### 회사 동기 단톡방
@@ -111,7 +111,7 @@ https://nojam-election.vercel.app
 정치 노잼인 거 인정.
 근데 이거 5분짜리라 점심시간에 한 번씩 보기 좋음
 
-https://nojam-election.vercel.app
+https://nojam.kr
 ```
 
 ---
@@ -122,7 +122,7 @@ https://nojam-election.vercel.app
 ```
 정치 노잼인 거 아는데, 5분만.
 👇
-nojam-election.vercel.app
+nojam.kr
 ```
 
 ### 피드 캡션 (랭킹 캡쳐랑 같이)
@@ -155,7 +155,7 @@ nojam-election.vercel.app
 선관위 자료를 그냥 보기 좋게 정리한 거라
 누구 편들고 그런 거 없음
 
-https://nojam-election.vercel.app
+https://nojam.kr
 
 내 동네는 ㄹㅇ 누가 누군지 몰랐는데
 5분 만에 다 봄
@@ -178,7 +178,7 @@ https://nojam-election.vercel.app
 
 특정 정당 지지 X. 그냥 팩트만 정리해서 5분 안에 볼 수 있게 만든 것 같음.
 
-https://nojam-election.vercel.app
+https://nojam.kr
 
 도움 되실 분 있을까 싶어 올려요.
 ```
@@ -203,7 +203,7 @@ https://nojam-election.vercel.app
 특정 정당이나 후보를 지지하는 사이트가 아니라
 순수히 정보를 정리한 것이라 부담 없이 보시면 좋을 것 같아요.
 
-https://nojam-election.vercel.app
+https://nojam.kr
 
 투표 전에 5분만이라도 들러보세요.
 ```
@@ -271,7 +271,7 @@ https://nojam-election.vercel.app
 특정 정당·후보를 지지하지 않으며, 모든 후보를 동일 양식으로 표기합니다.
 선관위 부여 기호 순으로 정렬됩니다.
 
-URL: https://nojam-election.vercel.app
+URL: https://nojam.kr
 
 문의: 사이트 푸터의 "문의·정정" 폼
 ```

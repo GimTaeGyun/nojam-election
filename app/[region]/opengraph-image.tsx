@@ -80,7 +80,7 @@ export default async function Image({ params }: { params: { region: string } }) 
             시·도지사 {govCount}명 · 교육감 {eduCount}명 · 30초 룰
           </span>
           <span style={{ color: "#d4ff00", fontFamily: "monospace" }}>
-            nojam-election.vercel.app
+            nojam.kr
           </span>
         </div>
       </div>

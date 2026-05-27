@@ -25,7 +25,7 @@ export function shareToKakao(input: KakaoShareInput): boolean {
       content: {
         title: input.title,
         description: input.description ?? "정치 노잼인 거 아는데, 5분만.",
-        imageUrl: input.imageUrl ?? "https://nojam-election.vercel.app/opengraph-image",
+        imageUrl: input.imageUrl ?? "https://nojam.kr/opengraph-image",
         link: {
           mobileWebUrl: input.url,
           webUrl: input.url,
