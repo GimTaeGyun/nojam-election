@@ -40,7 +40,7 @@ export function SiteHeader() {
             href="/stats/parties"
             className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
           >
-            정당별 분석
+            전과 신고
           </Link>
           <Link
             href="/about"

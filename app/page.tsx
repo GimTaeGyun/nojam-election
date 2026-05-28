@@ -4,6 +4,7 @@ import { WhyNojam } from "@/components/WhyNojam";
 import { Disclaimer } from "@/components/Disclaimer";
 import { PartyStatsTeaser } from "@/components/PartyStatsTeaser";
 import { WealthTeaser } from "@/components/WealthTeaser";
+import { EduCriminalTeaser } from "@/components/EduCriminalTeaser";
 
 export default function HomePage() {
   return (
@@ -14,12 +15,14 @@ export default function HomePage() {
       </div>
       <RegionGrid />
 
-      {/* 두 차별 콘텐츠 — 정당별 전과 / 전국 재산 순위 */}
+      {/* 4 통계 카드 — 시·도지사 / 교육감 × 재산 / 전과 */}
       <section className="py-12 border-t border-paper/10">
-        <div className="text-[11px] font-mono text-neon/70 mb-3">차별 콘텐츠</div>
-        <div className="grid md:grid-cols-2 gap-3">
+        <div className="text-[11px] font-mono text-neon/70 mb-3">차별 콘텐츠 · 한 곳에서 다 본다</div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <WealthTeaser race="gov" />
           <PartyStatsTeaser />
-          <WealthTeaser />
+          <WealthTeaser race="edu" />
+          <EduCriminalTeaser />
         </div>
       </section>
 

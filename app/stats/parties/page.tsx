@@ -1,161 +1,74 @@
 import Link from "next/link";
 import { computePartyStats, getOverallStats } from "@/lib/partyStats";
+import { computeEduCriminal, getEduCriminalSummary } from "@/lib/eduCriminalStats";
 import { ddayLabel } from "@/lib/dday";
-import type { Candidate } from "@/data/types";
+import { CriminalTabsView } from "@/components/CriminalTabsView";
 
 export const metadata = {
-  title: "정당별 출마자 전과 신고 현황 — 2026 지방선거 시·도지사",
+  title: "후보 전과 신고 현황 — 시·도지사 + 교육감 (2026 지방선거)",
   description:
-    "2026 6월 3일 지방선거, 더불어민주당·국민의힘·진보당·개혁신당 등 정당별 시·도지사 후보 54명의 전과 신고 비율과 건수. 선관위 공식 자료 전수 집계.",
+    "2026 6월 3일 지방선거, 시·도지사 후보 정당별 전과 신고 비율 + 교육감 후보 전과 신고 명단. 한 페이지에서 둘 다. 선관위 공식 자료 전수 집계.",
   keywords: [
+    "후보자 전과 신고",
     "정당별 전과",
-    "정당별 출마자",
+    "교육감 전과",
     "지방선거 전과",
-    "후보자 전과 통계",
+    "후보 전과 통계",
     "더불어민주당 전과",
     "국민의힘 전과",
     "진보당 전과",
     "시·도지사 후보 전과",
+    "교육감 후보 전과",
     "노잼선거",
     "2026 지방선거",
   ],
   openGraph: {
-    title: "정당별 출마자 전과 신고 현황 — 2026 지방선거 시·도지사",
+    title: "후보 전과 신고 현황 — 시·도지사 + 교육감 (2026 지방선거)",
     description:
-      "정당별 시·도지사 후보 54명의 전과 신고 비율과 건수. 선관위 공식 자료 전수 집계. 한 곳에서 다 본다.",
+      "시·도지사 후보 정당별 전과 비율 + 교육감 후보 전과 명단. 한 곳에서 다 본다.",
     type: "website",
     locale: "ko_KR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "정당별 출마자 전과 신고 현황 — 노잼선거",
-    description:
-      "정당별 시·도지사 후보 54명의 전과 신고 비율. 한 곳에서 다 본다.",
+    title: "후보 전과 신고 현황 — 노잼선거",
+    description: "시·도지사 정당별 + 교육감 후보별. 한 곳에서 다 본다.",
   },
   alternates: {
     canonical: "https://nojam.kr/stats/parties",
   },
 };
 
-// PartyChip과 동일한 색
-const PARTY_HEX: Record<Candidate["partyKey"], string> = {
-  democratic: "#152484",
-  ppp: "#E61E2B",
-  rebuilding: "#06275E",
-  reform: "#FF7920",
-  justice: "#FFCD00",
-  progressive: "#D6001C",
-  green: "#7BBA3C",
-  women: "#A50034",
-  freedom: "#1B468B",
-  alliance: "#3A3A3A",
-  indep: "#6B7280",
-};
-
-export default function StatsPartiesPage() {
-  const stats = computePartyStats();
-  const overall = getOverallStats();
-
-  const top = stats[0];
-  const maxRate = Math.max(...stats.map((s) => s.rate));
+export default function StatsCriminalPage() {
+  const govStats = computePartyStats();
+  const govOverall = getOverallStats();
+  const eduList = computeEduCriminal();
+  const eduSummary = getEduCriminalSummary();
 
   return (
     <article className="py-10">
-      {/* 헤더 */}
       <header className="mb-10">
         <Link href="/" className="text-xs text-paper/40 hover:text-neon font-mono">
           ← 메인
         </Link>
         <div className="mt-3 flex items-baseline gap-3 flex-wrap">
           <h1 className="text-3xl sm:text-5xl font-black tracking-tightest">
-            정당별 <span className="text-neon">전과 신고</span> 현황
+            후보 <span className="text-neon">전과 신고</span> 현황
           </h1>
           <span className="font-mono text-xs text-paper/40">{ddayLabel()}</span>
         </div>
         <p className="text-sm text-paper/60 mt-3 leading-relaxed">
-          2026 제9회 전국동시지방선거 <strong className="text-paper">시·도지사 후보</strong> 한정.
-          중앙선관위가 공개한 후보자 명부의 "전과기록유무(건수)" 항목을 정당별로 집계한 자료입니다.
+          2026 제9회 전국동시지방선거 <strong className="text-paper">시·도지사 + 교육감</strong> 한 페이지.
+          중앙선관위가 공개한 후보자 명부의 "전과기록유무(건수)" 항목을 집계했습니다.
         </p>
       </header>
 
-      {/* 교육감 안내 배너 (상단) */}
-      <Link
-        href="/stats/edu-criminal"
-        className="block border border-paper/15 hover:border-neon/50 rounded-lg px-4 py-3 mb-8 transition-colors group"
-      >
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <div className="text-[10px] font-mono text-paper/40">교육감 후보 전과는?</div>
-            <div className="text-sm text-paper/85 mt-0.5">
-              교육감은 정당 소속이 없어 별도 페이지에서 정리했어요.
-            </div>
-          </div>
-          <span className="text-xs text-neon group-hover:underline shrink-0">교육감 전과 →</span>
-        </div>
-      </Link>
+      <CriminalTabsView
+        gov={{ stats: govStats, overall: govOverall }}
+        edu={{ list: eduList, summary: eduSummary }}
+      />
 
-      {/* 전체 통계 카드 */}
-      <section className="grid grid-cols-3 gap-2 mb-10">
-        <Stat label="총 출마자" value={`${overall.total}명`} />
-        <Stat label="전과 신고" value={`${overall.hasCrim}명`} accent />
-        <Stat label="비율" value={`${(overall.rate * 100).toFixed(1)}%`} accent />
-      </section>
-
-      {/* 정당별 표 + 막대 */}
-      <section className="mb-10">
-        <h2 className="text-xl font-black tracking-tightest mb-1">정당별 출마자 / 전과 신고</h2>
-        <div className="text-xs text-paper/50 font-mono mb-4">출마자 수 많은 순</div>
-
-        <div className="border border-paper/10 rounded-xl divide-y divide-paper/5 overflow-hidden">
-          {stats.map((s) => {
-            const pctBar = maxRate > 0 ? (s.rate / maxRate) * 100 : 0;
-            const isAllCrim = s.rate === 1 && s.total > 0;
-            return (
-              <div key={s.party} className="p-4 hover:bg-paper/[0.03] transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <span
-                    className="inline-block w-2.5 h-2.5 rounded-sm shrink-0"
-                    style={{ background: PARTY_HEX[s.partyKey] ?? PARTY_HEX.indep }}
-                    aria-hidden
-                  />
-                  <span className="font-bold text-base w-28 sm:w-32 truncate">{s.party}</span>
-                  <span className="text-xs text-paper/60 font-mono">
-                    {s.hasCrim} / {s.total}
-                  </span>
-                  <div className="ml-auto flex items-baseline gap-1">
-                    <span
-                      className={`font-mono text-lg font-black tabular-nums ${
-                        isAllCrim ? "text-neon" : "text-paper/90"
-                      }`}
-                    >
-                      {(s.rate * 100).toFixed(0)}
-                    </span>
-                    <span className="text-xs text-paper/50">%</span>
-                  </div>
-                </div>
-
-                <div className="h-2 bg-paper/[0.04] rounded-sm overflow-hidden">
-                  <div
-                    className="h-full rounded-sm transition-all"
-                    style={{
-                      width: `${pctBar}%`,
-                      background: isAllCrim ? "#d4ff00" : "rgba(212,255,0,0.55)",
-                    }}
-                  />
-                </div>
-
-                {s.totalCrimCount > 0 && (
-                  <div className="mt-2 text-[11px] text-paper/40 font-mono">
-                    총 {s.totalCrimCount}건 · 1인당 평균 {s.avgPerPerson.toFixed(1)}건
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 명시적 주석 — 매우 중요 */}
+      {/* 명시적 주석 */}
       <section className="border border-neon/40 bg-neon/[0.04] rounded-lg p-5 mb-10">
         <div className="text-[11px] font-mono text-neon/80 mb-2">⚠︎ 이 표를 보실 때 알아두실 점</div>
         <ul className="text-sm text-paper/85 leading-relaxed space-y-2">
@@ -166,11 +79,14 @@ export default function StatsPartiesPage() {
           </li>
           <li>
             전과 건수만으로 후보의 자질을 판단하시면 곤란합니다. 종류별로 의미가 크게 다릅니다.
-            구체적인 죄목은 후보 본인의 정보공개 자료(선관위 사이트)에서 확인하세요.
+            구체적인 죄목은{" "}
+            <a className="text-neon underline" href="https://info.nec.go.kr" target="_blank" rel="noreferrer">
+              선관위 사이트
+            </a>
+            에서 후보 본인의 정보공개 자료를 확인하세요.
           </li>
           <li>
-            출마자 수가 적은 정당(1~5명)은 비율 변동이 크니 참고용으로만 보세요. 단 1명 출마에 전과
-            1건이면 100%가 됩니다.
+            출마자 수가 적은 정당(1~5명)은 비율 변동이 크니 참고용으로만 보세요.
           </li>
           <li>
             본 사이트는 특정 정당·후보를 지지하거나 반대하지 않습니다. 단순 팩트 정리이며,
@@ -179,66 +95,11 @@ export default function StatsPartiesPage() {
         </ul>
       </section>
 
-      {/* 전과 신고 후보 명단 */}
-      <section className="mb-10">
-        <h2 className="text-xl font-black tracking-tightest mb-1">전과 신고 후보 명단</h2>
-        <div className="text-xs text-paper/50 font-mono mb-4">정당별, 건수 많은 순</div>
-
-        <div className="space-y-4">
-          {stats
-            .filter((s) => s.hasCrim > 0)
-            .sort((a, b) => b.hasCrim - a.hasCrim)
-            .map((s) => (
-              <div key={s.party} className="border border-paper/10 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className="inline-block w-2.5 h-2.5 rounded-sm"
-                    style={{ background: PARTY_HEX[s.partyKey] ?? PARTY_HEX.indep }}
-                    aria-hidden
-                  />
-                  <span className="font-bold">{s.party}</span>
-                  <span className="text-xs text-paper/50 font-mono">
-                    {s.hasCrim}명 · 총 {s.totalCrimCount}건
-                  </span>
-                </div>
-                <ul className="space-y-1 text-sm">
-                  {s.candidates.map((c) => (
-                    <li
-                      key={`${s.party}-${c.name}`}
-                      className="flex items-baseline gap-2 text-paper/80"
-                    >
-                      <span className="font-semibold">{c.name}</span>
-                      <span className="text-xs text-paper/40">{c.region}</span>
-                      <span className="ml-auto font-mono text-xs text-neon">
-                        {c.raw}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-        </div>
-      </section>
-
-      {/* 교육감 안내 */}
-      <section className="text-xs text-paper/50 leading-relaxed mb-6 border-t border-paper/10 pt-4">
-        교육감은 정당 소속이 없어 본 페이지엔 포함되지 않습니다. 교육감 후보 전과 신고는{" "}
-        <Link href="/stats/edu-criminal" className="text-neon underline">
-          /stats/edu-criminal
-        </Link>
-        에서 별도로 확인하실 수 있습니다.
-      </section>
-
-      {/* 출처 + 풋터 안내 */}
+      {/* 출처 */}
       <section className="text-xs text-paper/40 leading-relaxed border-t border-paper/10 pt-4">
         <p>
           데이터 출처:{" "}
-          <a
-            href="https://info.nec.go.kr"
-            target="_blank"
-            rel="noreferrer"
-            className="text-neon underline"
-          >
+          <a href="https://info.nec.go.kr" target="_blank" rel="noreferrer" className="text-neon underline">
             중앙선거관리위원회 선거통계시스템
           </a>{" "}
           후보자 명부 (추출일: 2026-05-26).
@@ -253,32 +114,9 @@ export default function StatsPartiesPage() {
           >
             문의 폼
           </a>
-          으로 보내주세요.
+          으로.
         </p>
       </section>
     </article>
-  );
-}
-
-function Stat({
-  label,
-  value,
-  accent,
-}: {
-  label: string;
-  value: string;
-  accent?: boolean;
-}) {
-  return (
-    <div className="border border-paper/10 rounded-lg p-4">
-      <div className="text-[10px] font-mono text-paper/40">{label}</div>
-      <div
-        className={`text-2xl sm:text-3xl font-black tracking-tightest mt-1 ${
-          accent ? "text-neon" : "text-paper"
-        }`}
-      >
-        {value}
-      </div>
-    </div>
   );
 }
