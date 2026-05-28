@@ -1,4 +1,5 @@
 import governorsData from "@/data/governors.json";
+import superintendentsData from "@/data/superintendents.json";
 import type { Candidate } from "@/data/types";
 import { parseThousandWon } from "./parseNum";
 
@@ -23,12 +24,14 @@ interface Raw {
   }>;
 }
 
-const RAW = governorsData as unknown as Record<string, Raw>;
+const GOVERNORS = governorsData as unknown as Record<string, Raw>;
+const SUPERINTENDENTS = superintendentsData as unknown as Record<string, Raw>;
 
-// 전국 시·도지사 후보 재산 순위 (재산 많은 순)
-export function computeWealthRanking(): WealthEntry[] {
+export type RaceKind = "gov" | "edu";
+
+function buildRanking(source: Record<string, Raw>): WealthEntry[] {
   const all: Omit<WealthEntry, "rank">[] = [];
-  for (const [code, region] of Object.entries(RAW)) {
+  for (const [code, region] of Object.entries(source)) {
     for (const c of region.candidates) {
       all.push({
         name: c.name,
@@ -46,15 +49,16 @@ export function computeWealthRanking(): WealthEntry[] {
     .map((e, i) => ({ ...e, rank: i + 1 }));
 }
 
-// 요약 통계
-export function getWealthSummary() {
-  const ranking = computeWealthRanking();
+export function computeWealthRanking(race: RaceKind = "gov"): WealthEntry[] {
+  return buildRanking(race === "gov" ? GOVERNORS : SUPERINTENDENTS);
+}
+
+export function getWealthSummary(race: RaceKind = "gov") {
+  const ranking = computeWealthRanking(race);
   const total = ranking.length;
   const sum = ranking.reduce((acc, e) => acc + e.wealthWon, 0);
   const avg = total > 0 ? Math.floor(sum / total) : 0;
-  const median = total > 0
-    ? ranking[Math.floor(total / 2)].wealthWon
-    : 0;
+  const median = total > 0 ? ranking[Math.floor(total / 2)].wealthWon : 0;
   const over10b = ranking.filter((e) => e.wealthWon >= 1_000_000_000).length;
   const top = ranking[0];
   const bottom = ranking[ranking.length - 1];

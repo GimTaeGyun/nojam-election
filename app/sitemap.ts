@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE, lastModified: now, changeFrequency: "daily", priority: 1.0 },
     { url: `${SITE}/stats/parties`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
     { url: `${SITE}/stats/wealth`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
+    { url: `${SITE}/stats/edu-criminal`, lastModified: now, changeFrequency: "daily", priority: 0.85 },
     { url: `${SITE}/about`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     ...REGIONS_META.map((r) => ({

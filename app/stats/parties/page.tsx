@@ -204,6 +204,15 @@ export default function StatsPartiesPage() {
         </div>
       </section>
 
+      {/* 교육감 안내 */}
+      <section className="text-xs text-paper/50 leading-relaxed mb-6 border-t border-paper/10 pt-4">
+        교육감은 정당 소속이 없어 본 페이지엔 포함되지 않습니다. 교육감 후보 전과 신고는{" "}
+        <Link href="/stats/edu-criminal" className="text-neon underline">
+          /stats/edu-criminal
+        </Link>
+        에서 별도로 확인하실 수 있습니다.
+      </section>
+
       {/* 출처 + 풋터 안내 */}
       <section className="text-xs text-paper/40 leading-relaxed border-t border-paper/10 pt-4">
         <p>
