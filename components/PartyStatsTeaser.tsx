@@ -43,7 +43,13 @@ export function PartyStatsTeaser() {
         </div>
       )}
 
-      <div className="text-xs text-neon mt-5 font-semibold">전체 보기 →</div>
+      <div className="flex items-center justify-between mt-5">
+        <div className="text-xs text-neon font-semibold">전체 보기 →</div>
+        <div className="text-[10px] text-paper/50">
+          + 교육감 전과는{" "}
+          <span className="text-paper/70 underline">/stats/edu-criminal</span>
+        </div>
+      </div>
     </Link>
   );
 }

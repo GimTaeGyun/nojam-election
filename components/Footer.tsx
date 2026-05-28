@@ -17,7 +17,8 @@ export function Footer() {
         </div>
         <div className="flex gap-4 flex-wrap">
           <Link href="/stats/wealth" className="hover:text-neon">재산 순위</Link>
-          <Link href="/stats/parties" className="hover:text-neon">정당별 분석</Link>
+          <Link href="/stats/parties" className="hover:text-neon">정당별 전과</Link>
+          <Link href="/stats/edu-criminal" className="hover:text-neon">교육감 전과</Link>
           <Link href="/about" className="hover:text-neon">소개</Link>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSdjGx_x7QkvQvM2-GWZ7M8KrqFCRS-Crp6CAfmNav-MhWJp7g/viewform"

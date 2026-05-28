@@ -78,6 +78,22 @@ export default function StatsPartiesPage() {
         </p>
       </header>
 
+      {/* 교육감 안내 배너 (상단) */}
+      <Link
+        href="/stats/edu-criminal"
+        className="block border border-paper/15 hover:border-neon/50 rounded-lg px-4 py-3 mb-8 transition-colors group"
+      >
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <div className="text-[10px] font-mono text-paper/40">교육감 후보 전과는?</div>
+            <div className="text-sm text-paper/85 mt-0.5">
+              교육감은 정당 소속이 없어 별도 페이지에서 정리했어요.
+            </div>
+          </div>
+          <span className="text-xs text-neon group-hover:underline shrink-0">교육감 전과 →</span>
+        </div>
+      </Link>
+
       {/* 전체 통계 카드 */}
       <section className="grid grid-cols-3 gap-2 mb-10">
         <Stat label="총 출마자" value={`${overall.total}명`} />
