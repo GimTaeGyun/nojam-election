@@ -43,6 +43,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "노잼선거" }],
   category: "politics",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+    shortcut: "/icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
