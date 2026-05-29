@@ -72,12 +72,14 @@ export function searchCandidates(query: string, limit = 12): SearchItem[] {
   if (!q) return [];
 
   if (CONSONANT_ONLY.test(q)) {
-    // 자음만 입력 → 초성 매칭
-    return ALL_CANDIDATES.filter((c) => getInitials(c.name).includes(q)).slice(0, limit);
+    // 자음만 입력 → 이름의 초성이 입력으로 시작 (startsWith)
+    // 예: "ㄱ" → 김XX, "ㅇㅅㅎ" → 오세훈
+    return ALL_CANDIDATES.filter((c) => getInitials(c.name).startsWith(q)).slice(0, limit);
   }
 
-  // 일반 텍스트 → 이름·정당 부분 일치
+  // 일반 텍스트 → 이름은 시작 매칭, 정당은 부분 일치
+  // 예: "오" → 오세훈, "더불어" → 더불어민주당 전원
   return ALL_CANDIDATES.filter(
-    (c) => c.name.includes(q) || c.party.includes(q),
+    (c) => c.name.startsWith(q) || c.party.includes(q),
   ).slice(0, limit);
 }
