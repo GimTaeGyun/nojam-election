@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { REGIONS_META } from "@/data/regions";
+import { CandidateSearch } from "./CandidateSearch";
 
 export function RegionGrid() {
   return (
@@ -8,7 +9,7 @@ export function RegionGrid() {
         <h2 className="text-2xl sm:text-3xl font-black tracking-tightest">
           내 동네 <span className="text-neon">한 번 보기</span>
         </h2>
-        <span className="text-xs text-paper/40 font-mono">17개 시·도</span>
+        <span className="text-xs text-paper/40 font-mono">16개 시·도</span>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
@@ -27,6 +28,9 @@ export function RegionGrid() {
           </Link>
         ))}
       </div>
+
+      {/* 후보 이름 검색 */}
+      <CandidateSearch />
     </section>
   );
 }

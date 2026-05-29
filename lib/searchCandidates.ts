@@ -1,0 +1,83 @@
+import governorsData from "@/data/governors.json";
+import superintendentsData from "@/data/superintendents.json";
+
+export interface SearchItem {
+  name: string;
+  party: string;
+  regionCode: string;
+  regionName: string;
+  race: "gov" | "edu";
+  property?: string;
+  criminalRecord?: string;
+}
+
+interface Raw {
+  regionName: string;
+  candidates: Array<{
+    name: string;
+    party: string;
+    property?: string;
+    criminalRecord?: string;
+  }>;
+}
+
+const GOVERNORS = governorsData as unknown as Record<string, Raw>;
+const SUPERINTENDENTS = superintendentsData as unknown as Record<string, Raw>;
+
+export const ALL_CANDIDATES: SearchItem[] = [
+  ...Object.entries(GOVERNORS).flatMap(([code, r]) =>
+    r.candidates.map((c) => ({
+      name: c.name,
+      party: c.party,
+      regionCode: code,
+      regionName: r.regionName,
+      race: "gov" as const,
+      property: c.property,
+      criminalRecord: c.criminalRecord,
+    })),
+  ),
+  ...Object.entries(SUPERINTENDENTS).flatMap(([code, r]) =>
+    r.candidates.map((c) => ({
+      name: c.name,
+      party: c.party,
+      regionCode: code,
+      regionName: r.regionName,
+      race: "edu" as const,
+      property: c.property,
+      criminalRecord: c.criminalRecord,
+    })),
+  ),
+];
+
+// 한글 초성 추출
+const INITIALS = [
+  "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ",
+  "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ",
+];
+
+function getInitial(ch: string): string {
+  const code = ch.charCodeAt(0);
+  if (code < 0xac00 || code > 0xd7a3) return ch;
+  return INITIALS[Math.floor((code - 0xac00) / 588)];
+}
+
+function getInitials(s: string): string {
+  return Array.from(s).map(getInitial).join("");
+}
+
+const CONSONANT_ONLY = /^[ㄱ-ㅎ]+$/;
+
+export function searchCandidates(query: string, limit = 12): SearchItem[] {
+  const q = query.trim();
+  if (!q) return [];
+
+  if (CONSONANT_ONLY.test(q)) {
+    // 자음만 입력 → 초성 매칭
+    return ALL_CANDIDATES.filter((c) => getInitials(c.name).includes(q)).slice(0, limit);
+  }
+
+  // 일반 텍스트 → 이름·정당 부분 일치
+  return ALL_CANDIDATES.filter(
+    (c) => c.name.includes(q) || c.party.includes(q),
+  ).slice(0, limit);
+}
