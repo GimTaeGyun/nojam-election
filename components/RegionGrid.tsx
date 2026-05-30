@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { REGIONS_META } from "@/data/regions";
 import { CandidateSearch } from "./CandidateSearch";
+import { RegionCard } from "./RegionCard";
 
 export function RegionGrid() {
   return (
@@ -14,18 +14,7 @@ export function RegionGrid() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
         {REGIONS_META.map((r) => (
-          <Link
-            key={r.code}
-            href={`/${r.code}`}
-            className="card-hover group border border-paper/10 rounded-lg p-4 hover:bg-paper/[0.03]"
-          >
-            <div className="text-xs text-paper/40 font-mono">{r.code.toUpperCase()}</div>
-            <div className="text-xl font-black tracking-tight mt-1">{r.shortName}</div>
-            <div className="text-[11px] text-paper/50 mt-1 line-clamp-1">{r.vibe}</div>
-            <div className="mt-3 text-[11px] text-neon/70 group-hover:text-neon">
-              후보 보러가기 →
-            </div>
-          </Link>
+          <RegionCard key={r.code} code={r.code} shortName={r.shortName} vibe={r.vibe} />
         ))}
       </div>
 

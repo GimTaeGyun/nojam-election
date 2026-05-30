@@ -69,16 +69,26 @@ export function CandidateSearch() {
                 {results.map((c, i) => {
                   const wealth = formatThousandWonAsKrw(c.property);
                   const crim = c.criminalRecord || "없음";
+                  const href =
+                    c.race === "mayor" && c.district
+                      ? `/${c.regionCode}?district=${encodeURIComponent(c.district)}#mayor`
+                      : `/${c.regionCode}#${c.race}`;
                   return (
                     <li key={`${c.regionCode}-${c.race}-${c.name}-${i}`}>
                       <Link
-                        href={`/${c.regionCode}#${c.race}`}
+                        href={href}
                         onClick={() => setOpen(false)}
                         className="block px-4 py-2.5 hover:bg-paper/[0.04] border-b border-paper/5 last:border-b-0 text-sm leading-snug"
                       >
                         <span className="font-semibold">{c.name}</span>
                         <span className="text-paper/30 mx-1.5">·</span>
                         <span className="text-paper/70">{c.party}</span>
+                        {c.district && (
+                          <>
+                            <span className="text-paper/30 mx-1.5">·</span>
+                            <span className="text-paper/60 text-xs">{c.district}</span>
+                          </>
+                        )}
                         <span className="text-paper/30 mx-1.5">·</span>
                         <span className="text-paper/70 tabular-nums">{wealth}</span>
                         <span className="text-paper/30 mx-1.5">·</span>

@@ -16,7 +16,8 @@ export type PartyKey =
 
 export type RaceType =
   | "광역단체장" // 시·도지사
-  | "교육감";
+  | "교육감"
+  | "기초단체장"; // 구청장·시장·군수
 
 export interface Candidate {
   /** 기호 (선관위 부여 번호) */
@@ -61,6 +62,8 @@ export interface Candidate {
   runCount?: string;
   /** 트리비아 (선택) */
   trivia?: string;
+  /** 선거구 (기초단체장만 - 예: "종로구", "함평군") */
+  district?: string;
 }
 
 export interface Race {

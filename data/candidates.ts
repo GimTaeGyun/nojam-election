@@ -2,6 +2,7 @@ import type { Region, Candidate, Race } from "./types";
 import { REGIONS_META } from "./regions";
 import governorsData from "./governors.json";
 import superintendentsData from "./superintendents.json";
+import mayorsData from "./mayors.json";
 
 // ─────────────────────────────────────────────────────────────────────────
 // 노잼선거 — 후보자 데이터
@@ -39,6 +40,17 @@ type RawCandidates = Record<
 
 const GOVERNORS = governorsData as unknown as RawCandidates;
 const SUPERINTENDENTS = superintendentsData as unknown as RawCandidates;
+
+type RawMayors = Record<
+  string,
+  {
+    regionName: string;
+    candidates: Array<
+      RawCandidates[string]["candidates"][number] & { district: string }
+    >;
+  }
+>;
+const MAYORS = mayorsData as unknown as RawMayors;
 
 const toCandidate = (c: RawCandidates[string]["candidates"][number]): Candidate => ({
   number: c.number,
@@ -80,6 +92,18 @@ const buildRaces = (regionCode: string, regionName: string): Race[] => {
       type: "교육감",
       title: `${regionName} 교육감`,
       candidates: edu.candidates.map(toCandidate),
+    });
+  }
+
+  const mayors = MAYORS[regionCode];
+  if (mayors && mayors.candidates.length) {
+    races.push({
+      type: "기초단체장",
+      title: `${regionName} 구청장·시장·군수`,
+      candidates: mayors.candidates.map((m) => ({
+        ...toCandidate(m),
+        district: m.district,
+      })),
     });
   }
 

@@ -1,12 +1,14 @@
 import governorsData from "@/data/governors.json";
 import superintendentsData from "@/data/superintendents.json";
+import mayorsData from "@/data/mayors.json";
 
 export interface SearchItem {
   name: string;
   party: string;
   regionCode: string;
   regionName: string;
-  race: "gov" | "edu";
+  race: "gov" | "edu" | "mayor";
+  district?: string;
   property?: string;
   criminalRecord?: string;
 }
@@ -21,8 +23,20 @@ interface Raw {
   }>;
 }
 
+interface RawMayors {
+  regionName: string;
+  candidates: Array<{
+    name: string;
+    party: string;
+    district: string;
+    property?: string;
+    criminalRecord?: string;
+  }>;
+}
+
 const GOVERNORS = governorsData as unknown as Record<string, Raw>;
 const SUPERINTENDENTS = superintendentsData as unknown as Record<string, Raw>;
+const MAYORS = mayorsData as unknown as Record<string, RawMayors>;
 
 export const ALL_CANDIDATES: SearchItem[] = [
   ...Object.entries(GOVERNORS).flatMap(([code, r]) =>
@@ -43,6 +57,18 @@ export const ALL_CANDIDATES: SearchItem[] = [
       regionCode: code,
       regionName: r.regionName,
       race: "edu" as const,
+      property: c.property,
+      criminalRecord: c.criminalRecord,
+    })),
+  ),
+  ...Object.entries(MAYORS).flatMap(([code, r]) =>
+    r.candidates.map((c) => ({
+      name: c.name,
+      party: c.party,
+      regionCode: code,
+      regionName: r.regionName,
+      race: "mayor" as const,
+      district: c.district,
       property: c.property,
       criminalRecord: c.criminalRecord,
     })),
