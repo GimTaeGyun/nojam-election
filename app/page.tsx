@@ -5,6 +5,7 @@ import { Disclaimer } from "@/components/Disclaimer";
 import { PartyStatsTeaser } from "@/components/PartyStatsTeaser";
 import { WealthTeaser } from "@/components/WealthTeaser";
 import { EduCriminalTeaser } from "@/components/EduCriminalTeaser";
+import { MayorsTeaser } from "@/components/MayorsTeaser";
 
 export default function HomePage() {
   return (
@@ -25,6 +26,9 @@ export default function HomePage() {
           <EduCriminalTeaser />
         </div>
       </section>
+
+      {/* 구청장·시장·군수 통계 큰 배너 */}
+      <MayorsTeaser />
 
       <WhyNojam />
 

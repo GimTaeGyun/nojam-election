@@ -18,6 +18,7 @@ export function Footer() {
         <div className="flex gap-4 flex-wrap">
           <Link href="/stats/wealth" className="hover:text-neon">재산 순위</Link>
           <Link href="/stats/parties" className="hover:text-neon">전과 신고</Link>
+          <Link href="/stats/mayors" className="hover:text-neon">구청장 통계</Link>
           <Link href="/about" className="hover:text-neon">소개</Link>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSdjGx_x7QkvQvM2-GWZ7M8KrqFCRS-Crp6CAfmNav-MhWJp7g/viewform"
