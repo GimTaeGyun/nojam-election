@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/stats/parties`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
     { url: `${SITE}/stats/wealth`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
     { url: `${SITE}/stats/mayors`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
+    { url: `${SITE}/stats/councilors`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
     { url: `${SITE}/about`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     ...REGIONS_META.map((r) => ({

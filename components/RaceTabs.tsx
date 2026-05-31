@@ -12,17 +12,20 @@ const HASH_TO_TYPE: Record<string, Race["type"]> = {
   governor: "광역단체장",
   edu: "교육감",
   mayor: "기초단체장",
+  council: "광역의원",
 };
 const TYPE_TO_HASH: Record<Race["type"], string> = {
   광역단체장: "governor",
   교육감: "edu",
   기초단체장: "mayor",
+  광역의원: "council",
 };
 
 const TAB_LABEL: Record<Race["type"], string> = {
   광역단체장: "시·도지사",
   교육감: "교육감",
   기초단체장: "구청장",
+  광역의원: "시·도의원",
 };
 
 export function RaceTabs({ races }: { races: Race[] }) {
@@ -94,6 +97,10 @@ function RaceSection({ race }: { race: Race }) {
   // 구청장은 별도 처리 (선거구 셀렉트 기반)
   if (race.type === "기초단체장") {
     return <MayorSection race={race} />;
+  }
+  // 시·도의원은 2단계 셀렉트 (구·시·군 → 선거구)
+  if (race.type === "광역의원") {
+    return <CouncilorSection race={race} />;
   }
 
   return (
@@ -290,6 +297,113 @@ function MayorSection({ race }: { race: Race }) {
               </tbody>
             </table>
           </div>
+        </>
+      )}
+    </section>
+  );
+}
+
+// 시·도의원 전용 — 1단계 셀렉트 (구·시·군 선택) + 선거구별 그룹 리스트
+function CouncilorSection({ race }: { race: Race }) {
+  const districts = Array.from(
+    new Set(race.candidates.map((c) => c.district).filter(Boolean) as string[]),
+  ).sort((a, b) => a.localeCompare(b, "ko"));
+
+  const [district, setDistrict] = useState("");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const d = params.get("district") ?? "";
+    if (d && districts.includes(d)) setDistrict(d);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const filtered = district
+    ? race.candidates.filter((c) => c.district === district)
+    : [];
+
+  // 선거구별 그룹화
+  const grouped = filtered.reduce(
+    (acc, c) => {
+      const key = c.constituency || "(선거구 없음)";
+      if (!acc[key]) acc[key] = [];
+      acc[key].push(c);
+      return acc;
+    },
+    {} as Record<string, typeof filtered>,
+  );
+  const groupedKeys = Object.keys(grouped).sort((a, b) => a.localeCompare(b, "ko"));
+
+  return (
+    <section className="mb-12">
+      <div className="flex items-end justify-between mb-4">
+        <div>
+          <div className="text-[11px] font-mono text-neon/70">{race.type}</div>
+          <h2 className="text-2xl font-black tracking-tightest">{race.title}</h2>
+        </div>
+        <div className="text-xs text-paper/40 font-mono">
+          {districts.length}개 구·시·군 · {race.candidates.length}명
+        </div>
+      </div>
+
+      <div className="mb-6">
+        <label className="text-xs font-semibold text-paper/80 mb-2 block">
+          구·시·군 선택
+        </label>
+        <select
+          value={district}
+          onChange={(e) => setDistrict(e.target.value)}
+          style={{ colorScheme: "dark" }}
+          className="w-full sm:w-72 bg-paper/[0.03] border border-paper/15 focus:border-neon/60 focus:outline-none rounded-lg px-4 py-3 text-sm text-paper"
+          aria-label="구·시·군 선택"
+        >
+          <option value="" style={{ background: "#0a0a0a", color: "#fafafa" }}>
+            구·시·군 고르기
+          </option>
+          {districts.map((d) => (
+            <option key={d} value={d} style={{ background: "#0a0a0a", color: "#fafafa" }}>
+              {d}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {!district ? (
+        <div className="border border-paper/10 rounded-lg p-8 text-center text-paper/50 text-sm">
+          위에서 본인 동네 구·시·군을 골라주세요.
+        </div>
+      ) : filtered.length === 0 ? (
+        <div className="border border-paper/10 rounded-lg p-8 text-center text-paper/50 text-sm">
+          이 구·시·군에는 후보 정보가 없습니다.
+        </div>
+      ) : (
+        <>
+          <div className="mb-4">
+            <div className="text-[11px] font-mono text-neon/70 mb-1">{district}</div>
+            <h3 className="text-lg font-black tracking-tightest">
+              {district} 시·도의원 후보 {filtered.length}명 · 선거구 {groupedKeys.length}개
+            </h3>
+          </div>
+
+          {/* 선거구별 그룹 */}
+          {groupedKeys.map((key) => (
+            <div key={key} className="mb-8">
+              <div className="text-sm font-bold text-neon mb-2 border-l-2 border-neon pl-2">
+                {key} <span className="text-paper/50 font-normal text-xs">{grouped[key].length}명</span>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {grouped[key].map((c, i) => (
+                  <div
+                    key={`council-${key}-${c.number}-${c.numberLabel ?? ""}-${i}`}
+                    className="scroll-mt-24"
+                  >
+                    <CandidateCard c={c} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </>
       )}
     </section>

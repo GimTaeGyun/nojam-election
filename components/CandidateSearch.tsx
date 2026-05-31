@@ -69,10 +69,14 @@ export function CandidateSearch() {
                 {results.map((c, i) => {
                   const wealth = formatThousandWonAsKrw(c.property);
                   const crim = c.criminalRecord || "없음";
-                  const href =
-                    c.race === "mayor" && c.district
-                      ? `/${c.regionCode}?district=${encodeURIComponent(c.district)}#mayor`
-                      : `/${c.regionCode}#${c.race}`;
+                  let href: string;
+                  if (c.race === "mayor" && c.district) {
+                    href = `/${c.regionCode}?district=${encodeURIComponent(c.district)}#mayor`;
+                  } else if (c.race === "council" && c.district) {
+                    href = `/${c.regionCode}?district=${encodeURIComponent(c.district)}#council`;
+                  } else {
+                    href = `/${c.regionCode}#${c.race}`;
+                  }
                   return (
                     <li key={`${c.regionCode}-${c.race}-${c.name}-${i}`}>
                       <Link
@@ -83,12 +87,17 @@ export function CandidateSearch() {
                         <span className="font-semibold">{c.name}</span>
                         <span className="text-paper/30 mx-1.5">·</span>
                         <span className="text-paper/70">{c.party}</span>
-                        {c.district && (
+                        {c.constituency ? (
+                          <>
+                            <span className="text-paper/30 mx-1.5">·</span>
+                            <span className="text-paper/60 text-xs">{c.constituency}</span>
+                          </>
+                        ) : c.district ? (
                           <>
                             <span className="text-paper/30 mx-1.5">·</span>
                             <span className="text-paper/60 text-xs">{c.district}</span>
                           </>
-                        )}
+                        ) : null}
                         <span className="text-paper/30 mx-1.5">·</span>
                         <span className="text-paper/70 tabular-nums">{wealth}</span>
                         <span className="text-paper/30 mx-1.5">·</span>
