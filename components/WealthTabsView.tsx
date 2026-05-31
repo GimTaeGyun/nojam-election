@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import type { WealthEntry } from "@/lib/wealthStats";
 import { formatKrw } from "@/lib/parseNum";
+import { buildCandidateHref } from "@/lib/candidateHref";
 import type { Candidate } from "@/data/types";
 
 const PARTY_HEX: Record<Candidate["partyKey"], string> = {
@@ -99,7 +100,7 @@ export function WealthTabsView({ govRanking, govSummary, eduRanking, eduSummary 
           <div className="border border-neon/40 bg-neon/[0.04] rounded-xl p-4">
             <div className="text-[10px] font-mono text-neon/80">최고 부자 ({raceLabel})</div>
             <Link
-              href={`/${summary.top.regionCode}${isGov ? "" : "#edu"}`}
+              href={buildCandidateHref({ regionCode: summary.top.regionCode, race: isGov ? "gov" : "edu", name: summary.top.name })}
               className="block text-xl font-black tracking-tightest mt-1 hover:text-neon"
             >
               {summary.top.name}
@@ -114,7 +115,7 @@ export function WealthTabsView({ govRanking, govSummary, eduRanking, eduSummary 
           <div className="border border-paper/15 rounded-xl p-4">
             <div className="text-[10px] font-mono text-paper/50">최저 재산 ({raceLabel})</div>
             <Link
-              href={`/${summary.bottom.regionCode}${isGov ? "" : "#edu"}`}
+              href={buildCandidateHref({ regionCode: summary.bottom.regionCode, race: isGov ? "gov" : "edu", name: summary.bottom.name })}
               className="block text-xl font-black tracking-tightest mt-1 hover:text-neon"
             >
               {summary.bottom.name}
@@ -142,7 +143,7 @@ export function WealthTabsView({ govRanking, govSummary, eduRanking, eduSummary 
             return (
               <Link
                 key={`${e.regionCode}-${e.name}-${e.rank}`}
-                href={`/${e.regionCode}${isGov ? "" : "#edu"}`}
+                href={buildCandidateHref({ regionCode: e.regionCode, race: isGov ? "gov" : "edu", name: e.name })}
                 className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-paper/[0.03] transition-colors"
               >
                 <span

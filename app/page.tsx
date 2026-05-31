@@ -8,6 +8,7 @@ import { EduCriminalTeaser } from "@/components/EduCriminalTeaser";
 import { MayorsTeaser } from "@/components/MayorsTeaser";
 import { CouncilorsTeaser } from "@/components/CouncilorsTeaser";
 import { LocalCouncilorsTeaser } from "@/components/LocalCouncilorsTeaser";
+import { Top5Teaser } from "@/components/Top5Teaser";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,9 @@ export default function HomePage() {
         <Disclaimer />
       </div>
       <RegionGrid />
+
+      {/* 전국 Top 5 컬렉션 (전체 후보 종합 임팩트) */}
+      <Top5Teaser />
 
       {/* 4 통계 카드 — 시·도지사 / 교육감 × 재산 / 전과 */}
       <section className="py-12 border-t border-paper/10">

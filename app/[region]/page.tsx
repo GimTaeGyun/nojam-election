@@ -93,15 +93,15 @@ export default function RegionPage({ params }: { params: { region: string } }) {
       {/* 탭 전환: 시·도지사 ↔ 교육감 */}
       <RaceTabs races={r.races} />
 
-      {/* 의원 선거 안내 */}
+      {/* 비례대표·국회의원 선거 안내 */}
       <section className="my-6 border border-paper/10 rounded-lg p-4 bg-paper/[0.02]">
         <div className="text-[11px] font-mono text-paper/40 mb-1">참고</div>
         <p className="text-sm text-paper/70 leading-relaxed">
           이번 선거에서는 위 후보들 외에도{" "}
-          <strong className="text-paper/90">시·도의원</strong>,{" "}
-          <strong className="text-paper/90">구·시·군의원</strong>,{" "}
-          <strong className="text-paper/90">광역·기초의원 비례대표</strong>도 같이 뽑아요.
-          의원 후보 수가 워낙 많아 본 사이트에는 담지 못했습니다 — 본인 선거구의 의원 후보 정보는{" "}
+          <strong className="text-paper/90">광역의원 비례대표</strong>,{" "}
+          <strong className="text-paper/90">기초의원 비례대표</strong>를 정당투표로 같이 뽑고,
+          일부 지역에서는 <strong className="text-paper/90">국회의원 재·보궐선거</strong>도 함께 치러집니다.
+          비례대표·국회의원 후보 정보는 본 사이트에 포함되지 않았어요 — 본인 선거구의 정보는{" "}
           <a
             href="https://info.nec.go.kr"
             target="_blank"
@@ -110,7 +110,7 @@ export default function RegionPage({ params }: { params: { region: string } }) {
           >
             중앙선관위 사이트
           </a>
-          에서 직접 확인하세요.
+          에서 확인하세요.
         </p>
       </section>
 

@@ -9,6 +9,7 @@ import {
 } from "@/lib/mayorsStats";
 import { formatKrw } from "@/lib/parseNum";
 import { ddayLabel } from "@/lib/dday";
+import { buildCandidateHref } from "@/lib/candidateHref";
 import type { Candidate } from "@/data/types";
 
 export const metadata = {
@@ -156,7 +157,7 @@ export default function StatsMayorsPage() {
             return (
               <Link
                 key={`${e.regionCode}-${e.district}-${e.name}-${e.rank}`}
-                href={`/${e.regionCode}?district=${encodeURIComponent(e.district)}#mayor`}
+                href={buildCandidateHref({ regionCode: e.regionCode, race: "mayor", name: e.name, district: e.district })}
                 className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-paper/[0.03] transition-colors"
               >
                 <span
@@ -214,7 +215,7 @@ export default function StatsMayorsPage() {
             return (
               <Link
                 key={`bw-${e.regionCode}-${e.district}-${e.name}-${e.rank}`}
-                href={`/${e.regionCode}?district=${encodeURIComponent(e.district)}#mayor`}
+                href={buildCandidateHref({ regionCode: e.regionCode, race: "mayor", name: e.name, district: e.district })}
                 className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-paper/[0.03] transition-colors"
               >
                 <span className="font-mono text-sm w-7 text-right tabular-nums text-paper/50">
@@ -259,7 +260,7 @@ export default function StatsMayorsPage() {
               return (
                 <Link
                   key={`crim-${e.regionCode}-${e.district}-${e.name}-${e.rank}`}
-                  href={`/${e.regionCode}?district=${encodeURIComponent(e.district)}#mayor`}
+                  href={buildCandidateHref({ regionCode: e.regionCode, race: "mayor", name: e.name, district: e.district })}
                   className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-paper/[0.03] transition-colors"
                 >
                   <span

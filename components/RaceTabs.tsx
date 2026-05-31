@@ -44,6 +44,30 @@ export function RaceTabs({ races }: { races: Race[] }) {
     }
   }, [races]);
 
+  // cand 쿼리가 있으면 해당 후보 카드로 자동 스크롤
+  // (district 등 다른 셀렉트가 활성화된 다음에 실행되도록 약간 지연)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const cand = params.get("cand");
+    if (!cand) return;
+
+    // district 셀렉트 등이 마운트 + 후보 카드 렌더링 끝난 다음 실행
+    const tryScroll = (retry = 0) => {
+      const el = document.getElementById(`cand-${cand}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        // 강조 효과 1.5초
+        el.classList.add("ring-2", "ring-neon");
+        setTimeout(() => el.classList.remove("ring-2", "ring-neon"), 2000);
+      } else if (retry < 10) {
+        // 셀렉트 처리·렌더링이 늦으면 재시도
+        setTimeout(() => tryScroll(retry + 1), 200);
+      }
+    };
+    setTimeout(() => tryScroll(), 300);
+  }, [activeIdx]);
+
   const handleTab = (idx: number) => {
     setActiveIdx(idx);
     const race = races[idx];
@@ -129,7 +153,8 @@ function RaceSection({ race }: { race: Race }) {
         {race.candidates.map((c) => (
           <div
             key={`${race.type}-${c.number}`}
-            id={`candidate-${c.number}`}
+            id={`cand-${c.name}`}
+            data-cand-name={c.name}
             className="scroll-mt-24"
           >
             <CandidateCard c={c} />
@@ -258,7 +283,8 @@ function MayorSection({ race }: { race: Race }) {
             {filtered.map((c) => (
               <div
                 key={`mayor-${district}-${c.number}`}
-                id={`candidate-${c.number}`}
+                id={`cand-${c.name}`}
+                data-cand-name={c.name}
                 className="scroll-mt-24"
               >
                 <CandidateCard c={c} />
@@ -399,6 +425,8 @@ function CouncilorSection({ race }: { race: Race }) {
                 {grouped[key].map((c, i) => (
                   <div
                     key={`council-${key}-${c.number}-${c.numberLabel ?? ""}-${i}`}
+                    id={`cand-${c.name}`}
+                    data-cand-name={c.name}
                     className="scroll-mt-24"
                   >
                     <CandidateCard c={c} />

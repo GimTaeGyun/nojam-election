@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import type { PartyStat } from "@/lib/partyStats";
 import type { EduCriminalEntry } from "@/lib/eduCriminalStats";
+import { buildCandidateHref } from "@/lib/candidateHref";
 import type { Candidate } from "@/data/types";
 
 const PARTY_HEX: Record<Candidate["partyKey"], string> = {
@@ -214,7 +215,7 @@ function EduView({ edu }: { edu: EduProps }) {
             {list.map((e, i) => (
               <Link
                 key={`${e.regionCode}-${e.name}-${i}`}
-                href={`/${e.regionCode}#edu`}
+                href={buildCandidateHref({ regionCode: e.regionCode, race: "edu", name: e.name })}
                 className="flex items-center gap-3 px-4 py-2.5 hover:bg-paper/[0.03] transition-colors"
               >
                 <span className="font-mono text-sm w-7 text-right text-paper/50 tabular-nums">

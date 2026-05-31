@@ -34,6 +34,19 @@ export default function AboutPage() {
         <li>· 데이터 추출일: 2026-05-26 (선거일 D-8 기준)</li>
       </ul>
 
+      <h2 className="text-2xl font-black tracking-tightest mt-10">사이트에 담은 / 담지 않은 선거</h2>
+      <p className="mt-3 text-paper/80 leading-relaxed text-sm">
+        2026 제9회 전국동시지방선거의 <strong className="text-paper">5개 선거직 6,714명</strong> 후보를 다룹니다 —
+        시·도지사, 교육감, 구청장·시장·군수, 시·도의원, 구·시·군의원.
+      </p>
+      <p className="mt-3 text-paper/60 leading-relaxed text-sm">
+        다음 선거는 본 사이트에 <strong className="text-paper/80">포함되지 않습니다</strong>:
+      </p>
+      <ul className="mt-2 space-y-2 text-paper/75 text-sm">
+        <li>· <strong className="text-paper/90">광역의원 비례대표 · 기초의원 비례대표</strong> — 정당투표로 뽑는 선거라 후보가 아닌 정당이 단위입니다.</li>
+        <li>· <strong className="text-paper/90">국회의원 재·보궐선거</strong> — 일부 지역에서 지방선거와 같이 치러지지만 별개 선거입니다.</li>
+      </ul>
+
       <h2 className="text-2xl font-black tracking-tightest mt-10">왜 '노잼'?</h2>
       <p className="mt-3 text-paper/80 leading-relaxed">
         솔직히 정치 컨텐츠 노잼인 거 인정. 다른 사이트들이 "투표는 민주주의의 꽃!"이라고
