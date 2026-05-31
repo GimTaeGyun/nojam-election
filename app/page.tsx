@@ -17,10 +17,11 @@ export default function HomePage() {
       <div className="mb-4">
         <Disclaimer />
       </div>
-      <RegionGrid />
 
-      {/* 전국 Top 5 컬렉션 (전체 후보 종합 임팩트) */}
+      {/* 전국 Top 5 컬렉션 (전체 후보 종합 임팩트 — D-2 시점 후킹) */}
       <Top5Teaser />
+
+      <RegionGrid />
 
       {/* 4 통계 카드 — 시·도지사 / 교육감 × 재산 / 전과 */}
       <section className="py-12 border-t border-paper/10">
