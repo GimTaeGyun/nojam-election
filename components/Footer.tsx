@@ -20,6 +20,7 @@ export function Footer() {
           <Link href="/stats/parties" className="hover:text-neon">전과 신고</Link>
           <Link href="/stats/mayors" className="hover:text-neon">구청장 통계</Link>
           <Link href="/stats/councilors" className="hover:text-neon">시·도의원 통계</Link>
+          <Link href="/stats/local-councilors" className="hover:text-neon">구·시·군의원 통계</Link>
           <Link href="/about" className="hover:text-neon">소개</Link>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSdjGx_x7QkvQvM2-GWZ7M8KrqFCRS-Crp6CAfmNav-MhWJp7g/viewform"

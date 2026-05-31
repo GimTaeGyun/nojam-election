@@ -13,12 +13,14 @@ const HASH_TO_TYPE: Record<string, Race["type"]> = {
   edu: "교육감",
   mayor: "기초단체장",
   council: "광역의원",
+  local: "기초의원",
 };
 const TYPE_TO_HASH: Record<Race["type"], string> = {
   광역단체장: "governor",
   교육감: "edu",
   기초단체장: "mayor",
   광역의원: "council",
+  기초의원: "local",
 };
 
 const TAB_LABEL: Record<Race["type"], string> = {
@@ -26,6 +28,7 @@ const TAB_LABEL: Record<Race["type"], string> = {
   교육감: "교육감",
   기초단체장: "구청장",
   광역의원: "시·도의원",
+  기초의원: "구·시·군의원",
 };
 
 export function RaceTabs({ races }: { races: Race[] }) {
@@ -98,8 +101,8 @@ function RaceSection({ race }: { race: Race }) {
   if (race.type === "기초단체장") {
     return <MayorSection race={race} />;
   }
-  // 시·도의원은 2단계 셀렉트 (구·시·군 → 선거구)
-  if (race.type === "광역의원") {
+  // 시·도의원·구·시·군의원은 동일 패턴 (1단계 셀렉트 + 선거구 그룹화)
+  if (race.type === "광역의원" || race.type === "기초의원") {
     return <CouncilorSection race={race} />;
   }
 
@@ -382,7 +385,7 @@ function CouncilorSection({ race }: { race: Race }) {
           <div className="mb-4">
             <div className="text-[11px] font-mono text-neon/70 mb-1">{district}</div>
             <h3 className="text-lg font-black tracking-tightest">
-              {district} 시·도의원 후보 {filtered.length}명 · 선거구 {groupedKeys.length}개
+              {district} {race.type === "기초의원" ? "구·시·군의원" : "시·도의원"} 후보 {filtered.length}명 · 선거구 {groupedKeys.length}개
             </h3>
           </div>
 

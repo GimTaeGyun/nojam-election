@@ -2,6 +2,8 @@ import Link from "next/link";
 import {
   computeRegionStats,
   computeTopWealth,
+  computeBottomWealth,
+  computeTopCriminal,
   computePartyStats,
   getOverall,
 } from "@/lib/councilorStats";
@@ -54,11 +56,14 @@ const PARTY_HEX: Record<Candidate["partyKey"], string> = {
 export default function StatsCouncilorsPage() {
   const overall = getOverall();
   const regions = computeRegionStats();
-  const topWealth = computeTopWealth(20);
+  const topWealth = computeTopWealth(10);
+  const bottomWealth = computeBottomWealth(10);
+  const topCriminal = computeTopCriminal(20);
   const parties = computePartyStats();
 
   const maxRegionAvg = regions[0]?.avgWealth ?? 1;
   const maxTopWealth = topWealth[0]?.wealth ?? 1;
+  const maxTopCriminal = topCriminal[0]?.count ?? 1;
   const maxPartyTotal = parties[0]?.total ?? 1;
 
   return (
@@ -138,7 +143,7 @@ export default function StatsCouncilorsPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-xl font-black tracking-tightest mb-1">전국 재산 Top 20</h2>
+        <h2 className="text-xl font-black tracking-tightest mb-1">전국 재산 Top 10</h2>
         <div className="text-xs text-paper/50 font-mono mb-4">전국 {overall.total.toLocaleString()}명 중 상위</div>
 
         <div className="border border-paper/10 rounded-xl divide-y divide-paper/5 overflow-hidden">
@@ -194,6 +199,108 @@ export default function StatsCouncilorsPage() {
             );
           })}
         </div>
+      </section>
+
+      {/* 전국 재산 하위 10 */}
+      <section className="mb-12">
+        <h2 className="text-xl font-black tracking-tightest mb-1">전국 재산 하위 10</h2>
+        <div className="text-xs text-paper/50 font-mono mb-4">재산 신고액 적은 순</div>
+
+        <div className="border border-paper/10 rounded-xl divide-y divide-paper/5 overflow-hidden">
+          {bottomWealth.map((e) => {
+            const hex = PARTY_HEX[e.partyKey] ?? PARTY_HEX.indep;
+            return (
+              <Link
+                key={`bw-${e.regionCode}-${e.constituency}-${e.name}-${e.rank}`}
+                href={`/${e.regionCode}?district=${encodeURIComponent(e.district)}#council`}
+                className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-paper/[0.03] transition-colors"
+              >
+                <span className="font-mono text-sm w-7 text-right tabular-nums text-paper/50">
+                  {e.rank}
+                </span>
+                <span className="font-semibold w-16 sm:w-20 truncate text-sm">{e.name}</span>
+                <span
+                  className="hidden sm:inline-block w-1 h-3 rounded-sm shrink-0"
+                  style={{ background: hex }}
+                  aria-hidden
+                />
+                <span className="text-[10px] text-paper/50 hidden sm:inline-block w-20 truncate">
+                  {e.party}
+                </span>
+                <span className="text-[10px] text-paper/40 truncate flex-1 min-w-0">
+                  {e.shortName} {e.constituency}
+                </span>
+                <span className="font-mono text-xs min-w-[90px] sm:min-w-[110px] text-right shrink-0 tabular-nums text-paper/85">
+                  {formatKrw(e.wealth)}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 전국 전과 신고 Top 20 */}
+      <section className="mb-12">
+        <h2 className="text-xl font-black tracking-tightest mb-1">전국 전과 신고 Top 20</h2>
+        <div className="text-xs text-paper/50 font-mono mb-4">건수 많은 순 · 클릭 시 해당 구·시·군으로</div>
+
+        {topCriminal.length === 0 ? (
+          <div className="border border-paper/10 rounded-lg p-8 text-center text-paper/50 text-sm">
+            전과 신고가 있는 후보가 없습니다.
+          </div>
+        ) : (
+          <div className="border border-paper/10 rounded-xl divide-y divide-paper/5 overflow-hidden">
+            {topCriminal.map((e) => {
+              const pct = (e.count / maxTopCriminal) * 100;
+              const isTop = e.rank === 1;
+              const hex = PARTY_HEX[e.partyKey] ?? PARTY_HEX.indep;
+              return (
+                <Link
+                  key={`crim-${e.regionCode}-${e.constituency}-${e.name}-${e.rank}`}
+                  href={`/${e.regionCode}?district=${encodeURIComponent(e.district)}#council`}
+                  className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-paper/[0.03] transition-colors"
+                >
+                  <span
+                    className={`font-mono text-sm w-7 text-right tabular-nums ${
+                      isTop ? "text-neon font-bold" : "text-paper/50"
+                    }`}
+                  >
+                    {e.rank}
+                  </span>
+                  <span className="font-semibold w-16 sm:w-20 truncate text-sm">{e.name}</span>
+                  <span
+                    className="hidden sm:inline-block w-1 h-3 rounded-sm shrink-0"
+                    style={{ background: hex }}
+                    aria-hidden
+                  />
+                  <span className="text-[10px] text-paper/50 hidden sm:inline-block w-20 truncate">
+                    {e.party}
+                  </span>
+                  <span className="text-[10px] text-paper/40 hidden md:inline-block truncate flex-shrink min-w-0">
+                    {e.shortName} {e.constituency}
+                  </span>
+                  <span className="text-[10px] text-paper/40 md:hidden truncate">{e.constituency}</span>
+                  <div className="flex-1 h-5 bg-paper/[0.04] rounded-sm relative overflow-hidden min-w-0">
+                    <div
+                      className="absolute left-0 top-0 h-full rounded-sm"
+                      style={{
+                        width: `${Math.max(pct, 2)}%`,
+                        background: isTop ? "#d4ff00" : "rgba(212,255,0,0.55)",
+                      }}
+                    />
+                  </div>
+                  <span
+                    className={`font-mono text-xs min-w-[55px] sm:min-w-[70px] text-right shrink-0 tabular-nums ${
+                      isTop ? "text-neon font-bold" : "text-paper/85"
+                    }`}
+                  >
+                    {e.raw}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </section>
 
       <section className="mb-12">

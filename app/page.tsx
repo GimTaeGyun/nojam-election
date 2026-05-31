@@ -7,6 +7,7 @@ import { WealthTeaser } from "@/components/WealthTeaser";
 import { EduCriminalTeaser } from "@/components/EduCriminalTeaser";
 import { MayorsTeaser } from "@/components/MayorsTeaser";
 import { CouncilorsTeaser } from "@/components/CouncilorsTeaser";
+import { LocalCouncilorsTeaser } from "@/components/LocalCouncilorsTeaser";
 
 export default function HomePage() {
   return (
@@ -33,6 +34,9 @@ export default function HomePage() {
 
       {/* 시·도의원 통계 큰 배너 */}
       <CouncilorsTeaser />
+
+      {/* 구·시·군의원 통계 큰 배너 */}
+      <LocalCouncilorsTeaser />
 
       <WhyNojam />
 

@@ -99,6 +99,29 @@ export function computeRegionStats(): RegionStat[] {
   return stats.sort((a, b) => b.avgWealth - a.avgWealth);
 }
 
+/** 전국 재산 하위 N (재산 적은 순) */
+export function computeBottomWealth(limit = 10): TopEntry[] {
+  const all: Omit<TopEntry, "rank">[] = [];
+  for (const [code, r] of Object.entries(RAW)) {
+    for (const c of r.candidates) {
+      all.push({
+        name: c.name,
+        party: c.party,
+        partyKey: c.partyKey as Candidate["partyKey"],
+        district: c.district,
+        regionCode: code,
+        regionName: r.regionName,
+        shortName: SHORT_NAME[code] ?? code,
+        wealth: parseThousandWon(c.property),
+      });
+    }
+  }
+  return all
+    .sort((a, b) => a.wealth - b.wealth || a.name.localeCompare(b.name, "ko"))
+    .slice(0, limit)
+    .map((e, i) => ({ ...e, rank: i + 1 }));
+}
+
 /** 전국 재산 Top N */
 export function computeTopWealth(limit = 20): TopEntry[] {
   const all: Omit<TopEntry, "rank">[] = [];
@@ -123,6 +146,46 @@ export function computeTopWealth(limit = 20): TopEntry[] {
 }
 
 /** 정당별 통계 */
+export interface CriminalEntry {
+  rank: number;
+  name: string;
+  party: string;
+  partyKey: Candidate["partyKey"];
+  district: string;
+  regionCode: string;
+  regionName: string;
+  shortName: string;
+  count: number;
+  raw: string;
+}
+
+/** 전과 신고 Top N (건수 많은 순) */
+export function computeTopCriminal(limit = 20): CriminalEntry[] {
+  const all: Omit<CriminalEntry, "rank">[] = [];
+  for (const [code, r] of Object.entries(RAW)) {
+    for (const c of r.candidates) {
+      const n = parseCriminalCount(c.criminalRecord);
+      if (n > 0) {
+        all.push({
+          name: c.name,
+          party: c.party,
+          partyKey: c.partyKey as Candidate["partyKey"],
+          district: c.district,
+          regionCode: code,
+          regionName: r.regionName,
+          shortName: SHORT_NAME[code] ?? code,
+          count: n,
+          raw: c.criminalRecord ?? "",
+        });
+      }
+    }
+  }
+  return all
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "ko"))
+    .slice(0, limit)
+    .map((e, i) => ({ ...e, rank: i + 1 }));
+}
+
 export function computePartyStats(): PartyStat[] {
   const m: Record<string, PartyStat> = {};
   for (const r of Object.values(RAW)) {

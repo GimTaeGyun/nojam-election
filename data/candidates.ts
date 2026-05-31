@@ -4,6 +4,7 @@ import governorsData from "./governors.json";
 import superintendentsData from "./superintendents.json";
 import mayorsData from "./mayors.json";
 import councilorsData from "./councilors.json";
+import localCouncilorsData from "./localCouncilors.json";
 
 // ─────────────────────────────────────────────────────────────────────────
 // 노잼선거 — 후보자 데이터
@@ -67,6 +68,7 @@ type RawCouncilors = Record<
   }
 >;
 const COUNCILORS = councilorsData as unknown as RawCouncilors;
+const LOCAL_COUNCILORS = localCouncilorsData as unknown as RawCouncilors;
 
 const toCandidate = (c: RawCandidates[string]["candidates"][number]): Candidate => ({
   number: c.number,
@@ -129,6 +131,20 @@ const buildRaces = (regionCode: string, regionName: string): Race[] => {
       type: "광역의원",
       title: `${regionName} 시·도의원`,
       candidates: councilors.candidates.map((c) => ({
+        ...toCandidate(c),
+        district: c.district,
+        constituency: c.constituency,
+        numberLabel: c.numberLabel,
+      })),
+    });
+  }
+
+  const localCouncilors = LOCAL_COUNCILORS[regionCode];
+  if (localCouncilors && localCouncilors.candidates.length) {
+    races.push({
+      type: "기초의원",
+      title: `${regionName} 구·시·군의원`,
+      candidates: localCouncilors.candidates.map((c) => ({
         ...toCandidate(c),
         district: c.district,
         constituency: c.constituency,

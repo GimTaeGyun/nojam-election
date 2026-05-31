@@ -74,6 +74,8 @@ export function CandidateSearch() {
                     href = `/${c.regionCode}?district=${encodeURIComponent(c.district)}#mayor`;
                   } else if (c.race === "council" && c.district) {
                     href = `/${c.regionCode}?district=${encodeURIComponent(c.district)}#council`;
+                  } else if (c.race === "local" && c.district) {
+                    href = `/${c.regionCode}?district=${encodeURIComponent(c.district)}#local`;
                   } else {
                     href = `/${c.regionCode}#${c.race}`;
                   }

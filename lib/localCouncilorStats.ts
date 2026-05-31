@@ -1,4 +1,4 @@
-import councilorsData from "@/data/councilors.json";
+import localCouncilorsData from "@/data/localCouncilors.json";
 import { REGIONS_META } from "@/data/regions";
 import { parseThousandWon, parseCriminalCount } from "./parseNum";
 import type { Candidate } from "@/data/types";
@@ -11,7 +11,6 @@ interface RawCandidate {
   partyKey: string;
   property?: string;
   criminalRecord?: string;
-  age?: number | null;
 }
 
 interface RawRegion {
@@ -19,7 +18,7 @@ interface RawRegion {
   candidates: RawCandidate[];
 }
 
-const RAW = councilorsData as unknown as Record<string, RawRegion>;
+const RAW = localCouncilorsData as unknown as Record<string, RawRegion>;
 
 const SHORT_NAME: Record<string, string> = Object.fromEntries(
   REGIONS_META.map((r) => [r.code, r.shortName]),
@@ -68,7 +67,6 @@ export function computeRegionStats(): RegionStat[] {
     let totalWealth = 0;
     let hasCrim = 0;
     let totalCrimCount = 0;
-
     for (const c of r.candidates) {
       districts.add(c.district);
       constituencies.add(c.constituency);
@@ -79,7 +77,6 @@ export function computeRegionStats(): RegionStat[] {
         totalCrimCount += cn;
       }
     }
-
     stats.push({
       regionCode: code,
       regionName: r.regionName,
