@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { computePartyStats, getOverallStats } from "@/lib/partyStats";
 import { computeEduCriminal, getEduCriminalSummary } from "@/lib/eduCriminalStats";
-import { ddayLabel } from "@/lib/dday";
+import { DDayBadge } from "@/components/DDayBadge";
 import { CriminalTabsView } from "@/components/CriminalTabsView";
 
 export const metadata = {
@@ -55,7 +55,7 @@ export default function StatsCriminalPage() {
           <h1 className="text-3xl sm:text-5xl font-black tracking-tightest">
             후보 <span className="text-neon">전과 신고</span> 현황
           </h1>
-          <span className="font-mono text-xs text-paper/40">{ddayLabel()}</span>
+          <DDayBadge className="font-mono text-xs text-paper/40" />
         </div>
         <p className="text-sm text-paper/60 mt-3 leading-relaxed">
           2026 제9회 전국동시지방선거 <strong className="text-paper">시·도지사 + 교육감</strong> 한 페이지.

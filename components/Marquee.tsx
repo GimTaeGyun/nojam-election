@@ -1,4 +1,7 @@
+"use client";
+
 // 상단에 흐르는 노란 띠 — B급 위트 / 핵심 메시지 노출
+import { useEffect, useState } from "react";
 import { ddayLabel } from "@/lib/dday";
 
 const COPY_BITS = [
@@ -11,14 +14,23 @@ const COPY_BITS = [
 ];
 
 export function Marquee() {
-  const dday = ddayLabel();
+  const [dday, setDday] = useState<string>(() => ddayLabel());
+  useEffect(() => {
+    setDday(ddayLabel());
+    const id = setInterval(() => setDday(ddayLabel()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+
   const items = [...COPY_BITS, ...COPY_BITS];
   return (
     <div className="bg-neon text-ink overflow-hidden border-b border-ink/10 select-none">
       <div className="marquee-track flex gap-10 whitespace-nowrap py-2 text-sm font-semibold tracking-tight">
         {items.map((t, i) => (
           <span key={i} className="flex items-center gap-10">
-            <span className="font-mono text-xs px-2 py-0.5 bg-ink text-neon rounded-sm">
+            <span
+              className="font-mono text-xs px-2 py-0.5 bg-ink text-neon rounded-sm"
+              suppressHydrationWarning
+            >
               {dday}
             </span>
             <span>{t}</span>

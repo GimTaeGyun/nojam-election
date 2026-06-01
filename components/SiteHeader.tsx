@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ddayLabel } from "@/lib/dday";
 import { HeaderVoteMini, HeaderVoteMiniMobile } from "./HeaderVoteMini";
+import { DDayBadge } from "./DDayBadge";
 
 // 모든 페이지 상단에 깔리는 글로벌 헤더
 // - 로고(홈 링크) + 가운데 미니 투표 카운터 + 우측 메뉴 + D-Day
@@ -48,12 +48,7 @@ export function SiteHeader() {
           >
             소개
           </Link>
-          <span
-            className="font-mono text-[11px] bg-neon text-ink px-1.5 py-0.5 rounded-sm font-bold"
-            aria-label={`선거일까지 ${ddayLabel()}`}
-          >
-            {ddayLabel()}
-          </span>
+          <DDayBadge className="font-mono text-[11px] bg-neon text-ink px-1.5 py-0.5 rounded-sm font-bold" />
         </div>
       </div>
     </header>

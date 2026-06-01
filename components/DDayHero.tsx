@@ -1,9 +1,6 @@
-import { daysUntilElection, ddayLabel } from "@/lib/dday";
 import { Countdown } from "./Countdown";
 
 export function DDayHero() {
-  const d = daysUntilElection();
-  const label = ddayLabel();
   return (
     <section className="pt-10 pb-8">
       <div className="flex items-baseline gap-3 text-neon/70 text-xs font-mono mb-3">

@@ -4,7 +4,7 @@ import { getRegion, REGIONS } from "@/data/candidates";
 import { ShareBar } from "@/components/ShareBar";
 import { Disclaimer } from "@/components/Disclaimer";
 import { RaceTabs } from "@/components/RaceTabs";
-import { ddayLabel } from "@/lib/dday";
+import { DDayBadge } from "@/components/DDayBadge";
 
 export function generateStaticParams() {
   return REGIONS.map((r) => ({ region: r.code }));
@@ -74,9 +74,7 @@ export default function RegionPage({ params }: { params: { region: string } }) {
         {r.vibe && <p className="text-sm text-paper/50 mt-2">"{r.vibe}"</p>}
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <span className="font-mono text-xs bg-neon text-ink px-2 py-1 rounded-sm font-bold">
-            {ddayLabel()}
-          </span>
+          <DDayBadge className="font-mono text-xs bg-neon text-ink px-2 py-1 rounded-sm font-bold" />
           <span className="text-xs text-paper/60">
             6.3 (수) · 우리 동네 시·도지사 + 교육감
           </span>

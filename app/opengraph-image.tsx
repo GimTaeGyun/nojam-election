@@ -2,6 +2,8 @@ import { ImageResponse } from "next/og";
 import { ddayLabel } from "@/lib/dday";
 
 export const runtime = "edge";
+// D-Day가 매일 바뀌므로 1시간 단위로 OG 이미지 재생성.
+export const revalidate = 3600;
 export const alt = "노잼선거 — 정치 노잼인 거 아는데, 1분만";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

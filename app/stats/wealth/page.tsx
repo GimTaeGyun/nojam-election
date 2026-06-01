@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { computeWealthRanking, getWealthSummary } from "@/lib/wealthStats";
-import { ddayLabel } from "@/lib/dday";
+import { DDayBadge } from "@/components/DDayBadge";
 import { WealthTabsView } from "@/components/WealthTabsView";
 
 export const metadata = {
@@ -51,7 +51,7 @@ export default function StatsWealthPage() {
           <h1 className="text-3xl sm:text-5xl font-black tracking-tightest">
             후보 <span className="text-neon">재산 순위</span>
           </h1>
-          <span className="font-mono text-xs text-paper/40">{ddayLabel()}</span>
+          <DDayBadge className="font-mono text-xs text-paper/40" />
         </div>
         <p className="text-sm text-paper/60 mt-3 leading-relaxed">
           2026 제9회 전국동시지방선거 <strong className="text-paper">시·도지사 {govRanking.length}명 + 교육감 {eduRanking.length}명 전수</strong>.

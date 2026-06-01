@@ -8,7 +8,7 @@ import {
   getOverall,
 } from "@/lib/councilorStats";
 import { formatKrw } from "@/lib/parseNum";
-import { ddayLabel } from "@/lib/dday";
+import { DDayBadge } from "@/components/DDayBadge";
 import { buildCandidateHref } from "@/lib/candidateHref";
 import type { Candidate } from "@/data/types";
 
@@ -77,7 +77,7 @@ export default function StatsCouncilorsPage() {
           <h1 className="text-3xl sm:text-5xl font-black tracking-tightest">
             시·도의원 <span className="text-neon">통계</span>
           </h1>
-          <span className="font-mono text-xs text-paper/40">{ddayLabel()}</span>
+          <DDayBadge className="font-mono text-xs text-paper/40" />
         </div>
         <p className="text-sm text-paper/60 mt-3 leading-relaxed">
           2026 제9회 전국동시지방선거 <strong className="text-paper">광역의원 후보 {overall.total.toLocaleString()}명 · {overall.constituencyCount}개 선거구 전수</strong>.

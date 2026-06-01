@@ -10,7 +10,7 @@ import {
   type TopEntry,
 } from "@/lib/overallStats";
 import { formatKrw } from "@/lib/parseNum";
-import { ddayLabel } from "@/lib/dday";
+import { DDayBadge } from "@/components/DDayBadge";
 import type { Candidate } from "@/data/types";
 
 export const metadata = {
@@ -75,7 +75,7 @@ export default function StatsTop5Page() {
           <h1 className="text-3xl sm:text-5xl font-black tracking-tightest">
             전국 후보 <span className="text-neon">Top 5</span>
           </h1>
-          <span className="font-mono text-xs text-paper/40">{ddayLabel()}</span>
+          <DDayBadge className="font-mono text-xs text-paper/40" />
         </div>
         <p className="text-sm text-paper/60 mt-3 leading-relaxed">
           2026 제9회 전국동시지방선거 <strong className="text-paper">전 선거직 {overall.total.toLocaleString()}명</strong>{" "}
