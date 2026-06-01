@@ -89,7 +89,7 @@ export default function RegionPage({ params }: { params: { region: string } }) {
       </div>
 
       {/* 탭 전환: 시·도지사 ↔ 교육감 */}
-      <RaceTabs races={r.races} />
+      <RaceTabs races={r.races} regionCode={params.region} />
 
       {/* 비례대표·국회의원 선거 안내 */}
       <section className="my-6 border border-paper/10 rounded-lg p-4 bg-paper/[0.02]">

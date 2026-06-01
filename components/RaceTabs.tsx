@@ -5,6 +5,7 @@ import type { Race } from "@/data/types";
 import { Recordboard } from "./Recordboard";
 import { Leaderboard } from "./Leaderboard";
 import { CandidateCard } from "./CandidateCard";
+import { DistrictRankCard } from "./DistrictRankCard";
 import { formatThousandWonAsKrw } from "@/lib/parseNum";
 
 // URL hash ↔ race.type 매핑
@@ -31,7 +32,7 @@ const TAB_LABEL: Record<Race["type"], string> = {
   기초의원: "구·시·군의원",
 };
 
-export function RaceTabs({ races }: { races: Race[] }) {
+export function RaceTabs({ races, regionCode }: { races: Race[]; regionCode: string }) {
   const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
@@ -86,7 +87,7 @@ export function RaceTabs({ races }: { races: Race[] }) {
   }
 
   if (races.length === 1) {
-    return <RaceSection race={races[0]} />;
+    return <RaceSection race={races[0]} regionCode={regionCode} />;
   }
 
   const active = races[activeIdx];
@@ -115,19 +116,19 @@ export function RaceTabs({ races }: { races: Race[] }) {
         })}
       </div>
 
-      <RaceSection race={active} />
+      <RaceSection race={active} regionCode={regionCode} />
     </>
   );
 }
 
-function RaceSection({ race }: { race: Race }) {
+function RaceSection({ race, regionCode }: { race: Race; regionCode: string }) {
   // 구청장은 별도 처리 (선거구 셀렉트 기반)
   if (race.type === "기초단체장") {
-    return <MayorSection race={race} />;
+    return <MayorSection race={race} regionCode={regionCode} />;
   }
   // 시·도의원·구·시·군의원은 동일 패턴 (1단계 셀렉트 + 선거구 그룹화)
   if (race.type === "광역의원" || race.type === "기초의원") {
-    return <CouncilorSection race={race} />;
+    return <CouncilorSection race={race} regionCode={regionCode} />;
   }
 
   return (
@@ -201,7 +202,7 @@ function RaceSection({ race }: { race: Race }) {
 }
 
 // 구청장 전용 섹션 — 선거구 셀렉트 후 그 후보들만 표시
-function MayorSection({ race }: { race: Race }) {
+function MayorSection({ race, regionCode }: { race: Race; regionCode: string }) {
   // 모든 선거구 목록 추출
   const districts = Array.from(
     new Set(race.candidates.map((c) => c.district).filter(Boolean) as string[]),
@@ -273,6 +274,8 @@ function MayorSection({ race }: { race: Race }) {
         </div>
       ) : (
         <>
+          <DistrictRankCard race="mayor" regionCode={regionCode} district={district} />
+
           <div className="mb-4">
             <div className="text-[11px] font-mono text-neon/70 mb-1">{district}</div>
             <h3 className="text-lg font-black tracking-tightest">
@@ -333,7 +336,7 @@ function MayorSection({ race }: { race: Race }) {
 }
 
 // 시·도의원 전용 — 1단계 셀렉트 (구·시·군 선택) + 선거구별 그룹 리스트
-function CouncilorSection({ race }: { race: Race }) {
+function CouncilorSection({ race, regionCode }: { race: Race; regionCode: string }) {
   const districts = Array.from(
     new Set(race.candidates.map((c) => c.district).filter(Boolean) as string[]),
   ).sort((a, b) => a.localeCompare(b, "ko"));
@@ -408,11 +411,20 @@ function CouncilorSection({ race }: { race: Race }) {
         </div>
       ) : (
         <>
+          <DistrictRankCard
+            race={race.type === "기초의원" ? "local" : "council"}
+            regionCode={regionCode}
+            district={district}
+          />
+
           <div className="mb-4">
             <div className="text-[11px] font-mono text-neon/70 mb-1">{district}</div>
             <h3 className="text-lg font-black tracking-tightest">
               {district} {race.type === "기초의원" ? "구·시·군의원" : "시·도의원"} 후보 {filtered.length}명 · 선거구 {groupedKeys.length}개
             </h3>
+            <p className="text-[11px] text-paper/40 mt-1 leading-relaxed">
+              ※ 위 카드는 {district} 안 모든 선거구 후보를 종합한 평균값입니다.
+            </p>
           </div>
 
           {/* 선거구별 그룹 */}
