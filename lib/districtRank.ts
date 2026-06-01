@@ -31,7 +31,8 @@ interface DistrictAgg {
   district: string;
   n: number;
   totalWealth: number; // 원 단위 누적
-  hasCrimCount: number; // 전과 신고한 후보 수
+  hasCrimCount: number; // 전과 신고한 후보 수 (비율 계산용)
+  totalCrim: number; // 전과 건수 합계 (Top/Bottom 비교용)
 }
 
 function aggregate(race: RaceKey): DistrictAgg[] {
@@ -52,14 +53,15 @@ function aggregate(race: RaceKey): DistrictAgg[] {
           n: 0,
           totalWealth: 0,
           hasCrimCount: 0,
+          totalCrim: 0,
         };
         map.set(key, agg);
       }
       agg.n += 1;
       agg.totalWealth += parseThousandWon(c.property);
-      if (parseCriminalCount(c.criminalRecord) > 0) {
-        agg.hasCrimCount += 1;
-      }
+      const crim = parseCriminalCount(c.criminalRecord);
+      if (crim > 0) agg.hasCrimCount += 1;
+      agg.totalCrim += crim;
     }
   }
 
@@ -82,15 +84,57 @@ export interface DistrictRankResult {
   found: true;
   n: number; // 해당 구·시·군 후보 수
   avgWealth: number; // 원 단위 평균
-  crimRate: number; // 0~1 비율
+  totalCrim: number; // 전과 건수 합
   wealthRank: number; // 재산 평균 높은 순 (1위 = 가장 부자)
-  crimRank: number; // 전과 비율 높은 순 (1위 = 가장 많은 곳)
+  crimRank: number; // 전과 건수 합 높은 순 (1위 = 가장 많은 곳). 0건이면 의미 없음.
   totalDistricts: number; // 전국 비교 풀 크기
   regionName: string;
   district: string;
 }
 
 export type DistrictRank = DistrictRankResult | { found: false };
+
+export type DistrictMetric = "wealth" | "crim";
+
+export interface DistrictEntry {
+  rank: number;
+  regionCode: string;
+  regionName: string;
+  district: string;
+  n: number;
+  value: number; // metric별 값: wealth = 원 단위 평균재산, crim = 전과 건수 합
+}
+
+/** 전국 Top N + Bottom N. metric 기준 정렬. */
+export function getDistrictsTopBottom(
+  race: RaceKey,
+  metric: DistrictMetric,
+  n: number = 5,
+): { top: DistrictEntry[]; bottom: DistrictEntry[]; totalDistricts: number } {
+  const aggs = getAggs(race);
+  const valueOf = (a: DistrictAgg): number =>
+    metric === "wealth" ? a.totalWealth / a.n : a.totalCrim;
+
+  const sorted = [...aggs].sort((a, b) => valueOf(b) - valueOf(a));
+  const total = sorted.length;
+
+  const toEntry = (a: DistrictAgg, rank: number): DistrictEntry => ({
+    rank,
+    regionCode: a.regionCode,
+    regionName: a.regionName,
+    district: a.district,
+    n: a.n,
+    value: valueOf(a),
+  });
+
+  const top = sorted.slice(0, n).map((a, i) => toEntry(a, i + 1));
+  const bottom = sorted
+    .slice(-n)
+    .reverse()
+    .map((a, i) => toEntry(a, total - i));
+
+  return { top, bottom, totalDistricts: total };
+}
 
 export function getDistrictRank(
   race: RaceKey,
@@ -105,10 +149,9 @@ export function getDistrictRank(
 
   const total = aggs.length;
   const avgWealth = target.totalWealth / target.n;
-  const crimRate = target.hasCrimCount / target.n;
+  const totalCrim = target.totalCrim;
 
   // 재산: 평균 높은 순 (1위 = 가장 부자)
-  // 같은 값일 경우 안정적 정렬 위해 키 사용 (영향 미미)
   const wealthSorted = [...aggs].sort(
     (a, b) => b.totalWealth / b.n - a.totalWealth / a.n,
   );
@@ -117,10 +160,8 @@ export function getDistrictRank(
       (a) => a.regionCode === regionCode && a.district === district,
     ) + 1;
 
-  // 전과: 비율 높은 순 (1위 = 가장 많은 곳)
-  const crimSorted = [...aggs].sort(
-    (a, b) => b.hasCrimCount / b.n - a.hasCrimCount / a.n,
-  );
+  // 전과: 건수 합 높은 순 (1위 = 가장 많은 곳). 0건이면 등수 무의미.
+  const crimSorted = [...aggs].sort((a, b) => b.totalCrim - a.totalCrim);
   const crimRank =
     crimSorted.findIndex(
       (a) => a.regionCode === regionCode && a.district === district,
@@ -130,7 +171,7 @@ export function getDistrictRank(
     found: true,
     n: target.n,
     avgWealth,
-    crimRate,
+    totalCrim,
     wealthRank,
     crimRank,
     totalDistricts: total,
