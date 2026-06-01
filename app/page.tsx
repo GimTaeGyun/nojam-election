@@ -9,6 +9,7 @@ import { MayorsTeaser } from "@/components/MayorsTeaser";
 import { CouncilorsTeaser } from "@/components/CouncilorsTeaser";
 import { LocalCouncilorsTeaser } from "@/components/LocalCouncilorsTeaser";
 import { Top5Teaser } from "@/components/Top5Teaser";
+import { UncontestedTeaser } from "@/components/UncontestedTeaser";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,9 @@ export default function HomePage() {
 
       {/* 전국 Top 5 컬렉션 (전체 후보 종합 임팩트 — D-2 시점 후킹) */}
       <Top5Teaser />
+
+      {/* 무투표 당선 — 표 안 받고 당선된 112명 */}
+      <UncontestedTeaser />
 
       <RegionGrid />
 
