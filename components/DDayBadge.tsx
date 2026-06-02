@@ -11,9 +11,9 @@ interface Props {
 // 서버 컴포넌트에서 ddayLabel()을 직접 호출하면 빌드 시점에 박혀버려
 // 배포 후 자동으로 안 바뀌는 문제 방지.
 export function DDayBadge({ className }: Props) {
-  // SSR 첫 렌더는 빌드 시점 값으로 시작 (빈 값보다 깜빡임 적음).
-  // 마운트 후 useEffect에서 즉시 실제 클라이언트 시간으로 교체.
-  const [label, setLabel] = useState<string>(() => ddayLabel());
+  // SSR 시점엔 빈 값으로 시작. 빌드 시점 값이 절대 HTML에 박히지 않게.
+  // 마운트 후 useEffect에서 클라이언트 시간으로 즉시 채움.
+  const [label, setLabel] = useState<string>("");
 
   useEffect(() => {
     setLabel(ddayLabel());
@@ -25,10 +25,10 @@ export function DDayBadge({ className }: Props) {
   return (
     <span
       className={className}
-      aria-label={`선거일까지 ${label}`}
+      aria-label={label ? `선거일까지 ${label}` : "선거일 카운트다운 로딩 중"}
       suppressHydrationWarning
     >
-      {label}
+      {label || "D-—"}
     </span>
   );
 }

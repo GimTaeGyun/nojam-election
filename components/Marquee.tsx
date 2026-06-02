@@ -14,7 +14,8 @@ const COPY_BITS = [
 ];
 
 export function Marquee() {
-  const [dday, setDday] = useState<string>(() => ddayLabel());
+  // SSR에선 빈 값. mount 후 클라이언트 시간으로 채움.
+  const [dday, setDday] = useState<string>("");
   useEffect(() => {
     setDday(ddayLabel());
     const id = setInterval(() => setDday(ddayLabel()), 60_000);
@@ -31,7 +32,7 @@ export function Marquee() {
               className="font-mono text-xs px-2 py-0.5 bg-ink text-neon rounded-sm"
               suppressHydrationWarning
             >
-              {dday}
+              {dday || "D-—"}
             </span>
             <span>{t}</span>
             <span className="opacity-40">●</span>
