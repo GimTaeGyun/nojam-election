@@ -71,15 +71,6 @@ export function VoteWidget() {
         )}
       </div>
 
-      {/* 어뷰징 메타 안내 — 누가 콘솔에서 노잼만 2,000표 박은 거 인정 */}
-      <div className="border border-paper/15 bg-paper/[0.03] rounded-md px-3 py-2 mb-3 flex items-start gap-2">
-        <span className="text-sm shrink-0 leading-relaxed" aria-hidden>⚠️</span>
-        <p className="text-[11px] sm:text-xs text-paper/70 leading-relaxed">
-          어떤 사람이 노잼만 <strong className="text-paper">~2,000표</strong> 박음.
-          <span className="text-paper/50"> 장난하지 마라 ㅡ,.ㅡ</span>
-        </p>
-      </div>
-
       {!myVote ? (
         <div className="grid grid-cols-2 gap-2">
           <button
