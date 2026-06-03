@@ -31,16 +31,16 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3 shrink-0">
           <Link
+            href="/board"
+            className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
+          >
+            게시판
+          </Link>
+          <Link
             href="/stats/wealth"
             className="hidden sm:inline text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
           >
             재산 순위
-          </Link>
-          <Link
-            href="/stats/parties"
-            className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
-          >
-            전과 신고
           </Link>
           <Link
             href="/about"
