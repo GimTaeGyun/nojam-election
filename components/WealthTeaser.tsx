@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { computeWealthRanking, getWealthSummary, type RaceKind } from "@/lib/wealthStats";
 import { formatKrw } from "@/lib/parseNum";
+import { isAdmin } from "@/lib/auth";
+import { maskedName } from "@/lib/mask";
 
 const RACE_LABEL: Record<RaceKind, string> = {
   gov: "시·도지사",
@@ -9,7 +11,9 @@ const RACE_LABEL: Record<RaceKind, string> = {
 
 // 메인 페이지용 재산 랭킹 티저 — race prop으로 시도지사/교육감 둘 다 처리
 export function WealthTeaser({ race = "gov" }: { race?: RaceKind }) {
-  const ranking = computeWealthRanking(race).slice(0, 5);
+  const admin = isAdmin();
+  const rawRanking = computeWealthRanking(race).slice(0, 5);
+  const ranking = admin ? rawRanking : rawRanking.map((e, i) => ({ ...e, name: maskedName(i) }));
   const summary = getWealthSummary(race);
   const max = ranking[0]?.wealthWon ?? 1;
   const label = RACE_LABEL[race];

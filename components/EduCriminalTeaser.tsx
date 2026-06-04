@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { computeEduCriminal, getEduCriminalSummary } from "@/lib/eduCriminalStats";
+import { isAdmin } from "@/lib/auth";
+import { maskedName } from "@/lib/mask";
 
 // 메인 페이지용 교육감 전과 신고 티저
 export function EduCriminalTeaser() {
-  const list = computeEduCriminal().slice(0, 5);
+  const admin = isAdmin();
+  const rawList = computeEduCriminal().slice(0, 5);
+  const list = admin ? rawList : rawList.map((e, i) => ({ ...e, name: maskedName(i) }));
   const summary = getEduCriminalSummary();
 
   return (

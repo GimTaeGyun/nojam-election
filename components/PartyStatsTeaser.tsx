@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { computePartyStats, getOverallStats } from "@/lib/partyStats";
+import { isAdmin } from "@/lib/auth";
+import { maskedParty } from "@/lib/mask";
 
 // 메인 페이지용 시·도지사 정당별 전과 티저 카드
 export function PartyStatsTeaser() {
-  const stats = computePartyStats();
+  const admin = isAdmin();
+  const statsRaw = computePartyStats();
+  const stats = admin ? statsRaw : statsRaw.map((s) => ({ ...s, party: maskedParty(s.partyKey) }));
   const overall = getOverallStats();
 
   const top3 = stats

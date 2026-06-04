@@ -1,8 +1,10 @@
 import { REGIONS_META } from "@/data/regions";
 import { CandidateSearch } from "./CandidateSearch";
 import { RegionCard } from "./RegionCard";
+import { isAdmin } from "@/lib/auth";
 
 export function RegionGrid() {
+  const admin = isAdmin();
   return (
     <section className="py-10 border-t border-paper/10">
       <div className="flex items-end justify-between mb-6">
@@ -18,8 +20,8 @@ export function RegionGrid() {
         ))}
       </div>
 
-      {/* 후보 이름 검색 */}
-      <CandidateSearch />
+      {/* 후보 이름 검색 — 데모 모드에선 의미 없으므로 관리자만 노출 */}
+      {admin && <CandidateSearch />}
     </section>
   );
 }

@@ -8,18 +8,23 @@ import {
   getYoungest,
   getOldest,
 } from "@/lib/overallStats";
+import { isAdmin } from "@/lib/auth";
+import { maskedName, maskedParty } from "@/lib/mask";
 
 export function Top5Teaser() {
+  const admin = isAdmin();
   const overall = getOverallStats();
+  const maskOne = (e: ReturnType<typeof getTopWealth>[number] | undefined, idx: number) =>
+    !e || admin ? e : { ...e, name: maskedName(idx), party: maskedParty(e.partyKey) };
 
-  // 6개 항목 1위만
+  // 6개 항목 1위만 (데모 모드면 마스킹)
   const items = [
-    { emoji: "💰", label: "최고 부자",   entry: getTopWealth(1)[0] },
-    { emoji: "💸", label: "최저 재산",   entry: getBottomWealth(1)[0] },
-    { emoji: "📋", label: "전과 1위",    entry: getTopCriminal(1)[0] },
-    { emoji: "🔁", label: "출마 베테랑", entry: getTopRunCount(1)[0] },
-    { emoji: "🌱", label: "최연소",      entry: getYoungest(1)[0] },
-    { emoji: "🎂", label: "최고령",      entry: getOldest(1)[0] },
+    { emoji: "💰", label: "최고 부자",   entry: maskOne(getTopWealth(1)[0], 0) },
+    { emoji: "💸", label: "최저 재산",   entry: maskOne(getBottomWealth(1)[0], 1) },
+    { emoji: "📋", label: "전과 1위",    entry: maskOne(getTopCriminal(1)[0], 2) },
+    { emoji: "🔁", label: "출마 베테랑", entry: maskOne(getTopRunCount(1)[0], 3) },
+    { emoji: "🌱", label: "최연소",      entry: maskOne(getYoungest(1)[0], 4) },
+    { emoji: "🎂", label: "최고령",      entry: maskOne(getOldest(1)[0], 5) },
   ];
 
   return (
