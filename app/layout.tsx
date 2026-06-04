@@ -82,6 +82,9 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// SiteHeader가 관리자 쿠키 따라 배지 표시하므로 정적 캐시 금지.
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: {

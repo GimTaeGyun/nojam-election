@@ -11,6 +11,9 @@ import { LocalCouncilorsTeaser } from "@/components/LocalCouncilorsTeaser";
 import { Top5Teaser } from "@/components/Top5Teaser";
 import { UncontestedTeaser } from "@/components/UncontestedTeaser";
 
+// 관리자 쿠키 따라 마스킹 분기되어야 하므로 정적 캐시 금지.
+export const dynamic = "force-dynamic";
+
 export default function HomePage() {
   return (
     <>
