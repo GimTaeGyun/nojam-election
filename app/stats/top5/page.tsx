@@ -11,6 +11,11 @@ import {
 } from "@/lib/overallStats";
 import { formatKrw } from "@/lib/parseNum";
 import { DDayBadge } from "@/components/DDayBadge";
+import { isAdmin } from "@/lib/auth";
+import { maskedName, maskedParty } from "@/lib/mask";
+
+// 데모/관리자 분기 위해 동적 렌더
+export const dynamic = "force-dynamic";
 import type { Candidate } from "@/data/types";
 
 export const metadata = {
@@ -57,13 +62,16 @@ const PARTY_HEX: Record<Candidate["partyKey"], string> = {
 };
 
 export default function StatsTop5Page() {
+  const admin = isAdmin();
   const overall = getOverallStats();
-  const topWealth = getTopWealth(5);
-  const bottomWealth = getBottomWealth(5);
-  const topCriminal = getTopCriminal(5);
-  const topRun = getTopRunCount(5);
-  const youngest = getYoungest(5);
-  const oldest = getOldest(5);
+  const maskEntries = (list: TopEntry[]): TopEntry[] =>
+    admin ? list : list.map((e, i) => ({ ...e, name: maskedName(i), party: maskedParty(e.partyKey) }));
+  const topWealth = maskEntries(getTopWealth(5));
+  const bottomWealth = maskEntries(getBottomWealth(5));
+  const topCriminal = maskEntries(getTopCriminal(5));
+  const topRun = maskEntries(getTopRunCount(5));
+  const youngest = maskEntries(getYoungest(5));
+  const oldest = maskEntries(getOldest(5));
 
   return (
     <article className="py-10">

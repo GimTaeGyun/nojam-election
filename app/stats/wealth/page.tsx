@@ -2,6 +2,10 @@ import Link from "next/link";
 import { computeWealthRanking, getWealthSummary } from "@/lib/wealthStats";
 import { DDayBadge } from "@/components/DDayBadge";
 import { WealthTabsView } from "@/components/WealthTabsView";
+import { isAdmin } from "@/lib/auth";
+import { maskedName, maskedParty } from "@/lib/mask";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "전국 시·도지사·교육감 후보 재산 순위 — 2026 지방선거",
@@ -35,9 +39,16 @@ export const metadata = {
 };
 
 export default function StatsWealthPage() {
-  const govRanking = computeWealthRanking("gov");
+  const admin = isAdmin();
+  const govRankingRaw = computeWealthRanking("gov");
+  const eduRankingRaw = computeWealthRanking("edu");
+  const govRanking = admin
+    ? govRankingRaw
+    : govRankingRaw.map((e, i) => ({ ...e, name: maskedName(i), party: maskedParty(e.partyKey) }));
+  const eduRanking = admin
+    ? eduRankingRaw
+    : eduRankingRaw.map((e, i) => ({ ...e, name: maskedName(i), party: maskedParty(e.partyKey) }));
   const govSummary = getWealthSummary("gov");
-  const eduRanking = computeWealthRanking("edu");
   const eduSummary = getWealthSummary("edu");
 
   return (

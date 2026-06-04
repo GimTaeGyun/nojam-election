@@ -1,14 +1,16 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getRegion, REGIONS } from "@/data/candidates";
+import { getRegion } from "@/data/candidates";
 import { ShareBar } from "@/components/ShareBar";
 import { Disclaimer } from "@/components/Disclaimer";
 import { RaceTabs } from "@/components/RaceTabs";
 import { DDayBadge } from "@/components/DDayBadge";
+import { isAdmin } from "@/lib/auth";
+import { maskCandidates } from "@/lib/mask";
 
-export function generateStaticParams() {
-  return REGIONS.map((r) => ({ region: r.code }));
-}
+// 관리자 쿠키 동적 체크 위해 force-dynamic.
+// 선거 후 마스킹 적용을 위해 정적 빌드 X.
+export const dynamic = "force-dynamic";
 
 export function generateMetadata({ params }: { params: { region: string } }) {
   const r = getRegion(params.region);
@@ -53,6 +55,15 @@ export default function RegionPage({ params }: { params: { region: string } }) {
   const r = getRegion(params.region);
   if (!r) notFound();
 
+  // 데모 모드: 후보 정보 마스킹. 관리자 쿠키 있으면 원본 그대로.
+  const admin = isAdmin();
+  const races = admin
+    ? r.races
+    : r.races.map((race) => ({
+        ...race,
+        candidates: maskCandidates(race.candidates, r.name),
+      }));
+
   return (
     <>
       {/* 페이지 헤더 */}
@@ -89,7 +100,7 @@ export default function RegionPage({ params }: { params: { region: string } }) {
       </div>
 
       {/* 탭 전환: 시·도지사 ↔ 교육감 */}
-      <RaceTabs races={r.races} regionCode={params.region} />
+      <RaceTabs races={races} regionCode={params.region} />
 
       {/* 비례대표·국회의원 선거 안내 */}
       <section className="my-6 border border-paper/10 rounded-lg p-4 bg-paper/[0.02]">

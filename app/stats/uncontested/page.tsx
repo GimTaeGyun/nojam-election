@@ -4,6 +4,10 @@ import { buildCandidateHref } from "@/lib/candidateHref";
 import { DDayBadge } from "@/components/DDayBadge";
 import { formatThousandWonAsKrw } from "@/lib/parseNum";
 import type { Candidate } from "@/data/types";
+import { isAdmin } from "@/lib/auth";
+import { maskedName, maskedParty } from "@/lib/mask";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "이미 당선된 자들이 있다? — 무투표 당선 112명 (2026 지방선거)",
@@ -46,8 +50,25 @@ const PARTY_HEX: Record<Candidate["partyKey"], string> = {
 };
 
 export default function UncontestedPage() {
-  const { all, mayors, councilors } = getUncontested();
-  const byParty = getUncontestedByParty();
+  const admin = isAdmin();
+  const raw = getUncontested();
+  // 데모 모드: 이름·정당 마스킹. 정당별 분포는 partyKey 기준이라 유지.
+  const maskList = (list: UncontestedCandidate[]): UncontestedCandidate[] =>
+    admin
+      ? list
+      : list.map((c, i) => ({
+          ...c,
+          name: maskedName(i),
+          party: maskedParty(c.partyKey),
+          property: undefined,
+          criminalRecord: c.criminalRecord && c.criminalRecord !== "없음" ? "신고 있음" : "없음",
+        }));
+  const mayors = maskList(raw.mayors);
+  const councilors = maskList(raw.councilors);
+  const all = [...mayors, ...councilors];
+  const byParty = admin
+    ? getUncontestedByParty()
+    : getUncontestedByParty().map((p) => ({ ...p, party: maskedParty(p.partyKey) }));
   const total = all.length;
 
   // 시·도의원: regionName 단위로 그룹화

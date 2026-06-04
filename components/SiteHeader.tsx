@@ -1,12 +1,24 @@
 import Link from "next/link";
 import { HeaderVoteMini, HeaderVoteMiniMobile } from "./HeaderVoteMini";
 import { DDayBadge } from "./DDayBadge";
+import { isAdmin } from "@/lib/auth";
 
 // 모든 페이지 상단에 깔리는 글로벌 헤더
 // - 로고(홈 링크) + 가운데 미니 투표 카운터 + 우측 메뉴 + D-Day
 // - 마키 띠 아래에 위치
 export function SiteHeader() {
+  const admin = isAdmin();
   return (
+    <>
+    {admin && (
+      <Link
+        href="/admin"
+        className="block w-full bg-neon text-ink text-center text-[11px] font-mono font-bold py-1 hover:bg-neon/90 transition-colors"
+        aria-label="관리자 모드 — 클릭 시 로그아웃 가능"
+      >
+        👁 관리자 모드 — 원본 데이터 표시 중 (탭하여 로그아웃)
+      </Link>
+    )}
     <header className="border-b border-paper/10 bg-ink/95 backdrop-blur-sm sticky top-0 z-30">
       <div className="max-w-5xl mx-auto px-5 sm:px-8 h-12 flex items-center justify-between gap-3">
         <Link
@@ -52,5 +64,6 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
+    </>
   );
 }

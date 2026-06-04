@@ -33,6 +33,13 @@ export function Footer() {
           </a>
           <Link href="/privacy" className="hover:text-neon">개인정보처리방침</Link>
           <a href="https://info.nec.go.kr" target="_blank" rel="noreferrer" className="hover:text-neon">선관위</a>
+          <Link
+            href="/admin"
+            className="opacity-30 hover:opacity-100 hover:text-neon"
+            aria-label="관리자"
+          >
+            ·
+          </Link>
         </div>
       </div>
     </footer>
