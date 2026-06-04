@@ -3,6 +3,10 @@ import { computePartyStats, getOverallStats } from "@/lib/partyStats";
 import { computeEduCriminal, getEduCriminalSummary } from "@/lib/eduCriminalStats";
 import { DDayBadge } from "@/components/DDayBadge";
 import { CriminalTabsView } from "@/components/CriminalTabsView";
+import { isAdmin } from "@/lib/auth";
+import { maskedName, maskedParty } from "@/lib/mask";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "후보 전과 신고 현황 — 시·도지사 + 교육감 (2026 지방선거)",
@@ -40,9 +44,21 @@ export const metadata = {
 };
 
 export default function StatsCriminalPage() {
-  const govStats = computePartyStats();
+  const admin = isAdmin();
+  const govStatsRaw = computePartyStats();
+  const eduListRaw = computeEduCriminal();
+  // 데모 모드: 정당명·후보명 마스킹. 건수·비율 통계는 그대로.
+  const govStats = admin
+    ? govStatsRaw
+    : govStatsRaw.map((s) => ({
+        ...s,
+        party: maskedParty(s.partyKey),
+        candidates: s.candidates.map((c, i) => ({ ...c, name: `후보 #${i + 1}` })),
+      }));
+  const eduList = admin
+    ? eduListRaw
+    : eduListRaw.map((e, i) => ({ ...e, name: maskedName(i) }));
   const govOverall = getOverallStats();
-  const eduList = computeEduCriminal();
   const eduSummary = getEduCriminalSummary();
 
   return (

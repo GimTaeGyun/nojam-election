@@ -11,6 +11,10 @@ import { formatKrw } from "@/lib/parseNum";
 import { DDayBadge } from "@/components/DDayBadge";
 import { buildCandidateHref } from "@/lib/candidateHref";
 import type { Candidate } from "@/data/types";
+import { isAdmin } from "@/lib/auth";
+import { maskedName, maskedParty } from "@/lib/mask";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "구·시·군의원 후보 통계 — 2026 지방선거",
@@ -55,12 +59,23 @@ const PARTY_HEX: Record<Candidate["partyKey"], string> = {
 };
 
 export default function StatsLocalCouncilorsPage() {
+  const admin = isAdmin();
   const overall = getOverall();
   const regions = computeRegionStats();
-  const topWealth = computeTopWealth(10);
-  const bottomWealth = computeBottomWealth(10);
-  const topCriminal = computeTopCriminal(20);
-  const parties = computePartyStats();
+  const topWealthRaw = computeTopWealth(10);
+  const bottomWealthRaw = computeBottomWealth(10);
+  const topCriminalRaw = computeTopCriminal(20);
+  const partiesRaw = computePartyStats();
+  const topWealth = admin ? topWealthRaw : topWealthRaw.map((e, i) => ({ ...e, name: maskedName(i), party: maskedParty(e.partyKey) }));
+  const bottomWealth = admin ? bottomWealthRaw : bottomWealthRaw.map((e, i) => ({ ...e, name: maskedName(i), party: maskedParty(e.partyKey) }));
+  const topCriminal = admin ? topCriminalRaw : topCriminalRaw.map((e, i) => ({ ...e, name: maskedName(i), party: maskedParty(e.partyKey) }));
+  const parties = admin
+    ? partiesRaw
+    : partiesRaw.map((s) => ({
+        ...s,
+        party: maskedParty(s.partyKey),
+        candidates: s.candidates.map((c, i) => ({ ...c, name: `후보 #${i + 1}` })),
+      }));
 
   const maxRegionAvg = regions[0]?.avgWealth ?? 1;
   const maxTopWealth = topWealth[0]?.wealth ?? 1;
