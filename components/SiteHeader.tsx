@@ -43,6 +43,12 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3 shrink-0">
           <Link
+            href="/recap"
+            className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
+          >
+            회고
+          </Link>
+          <Link
             href="/board"
             className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
           >

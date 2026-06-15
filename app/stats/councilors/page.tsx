@@ -71,11 +71,7 @@ export default function StatsCouncilorsPage() {
   const topCriminal = admin ? topCriminalRaw : topCriminalRaw.map((e, i) => ({ ...e, name: maskedName(i), party: maskedParty(e.partyKey) }));
   const parties = admin
     ? partiesRaw
-    : partiesRaw.map((s) => ({
-        ...s,
-        party: maskedParty(s.partyKey),
-        candidates: s.candidates.map((c, i) => ({ ...c, name: `후보 #${i + 1}` })),
-      }));
+    : partiesRaw.map((s) => ({ ...s, party: maskedParty(s.partyKey) }));
 
   const maxRegionAvg = regions[0]?.avgWealth ?? 1;
   const maxTopWealth = topWealth[0]?.wealth ?? 1;
