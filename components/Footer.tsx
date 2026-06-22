@@ -32,6 +32,7 @@ export function Footer() {
             문의·정정
           </a>
           <Link href="/privacy" className="hover:text-neon">개인정보처리방침</Link>
+          <Link href="/architecture" className="hover:text-neon">구성도</Link>
           <a href="https://info.nec.go.kr" target="_blank" rel="noreferrer" className="hover:text-neon">선관위</a>
           <Link
             href="/admin"

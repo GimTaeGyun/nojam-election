@@ -49,6 +49,12 @@ export function SiteHeader() {
             회고
           </Link>
           <Link
+            href="/architecture"
+            className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
+          >
+            구성도
+          </Link>
+          <Link
             href="/board"
             className="text-xs text-paper/60 hover:text-neon transition-colors font-semibold"
           >
