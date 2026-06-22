@@ -350,8 +350,12 @@ export default function ArchitecturePage() {
         </div>
       </section>
 
-      {/* 회고로 돌아가기 */}
+      {/* 회고 + 공부하기 */}
       <section className="text-center border-t border-paper/10 pt-6">
+        <p className="text-sm text-paper/60 leading-relaxed mb-4">
+          이 구성도를 본인 프로젝트로 설명할 수 있게 공부하려면 →{" "}
+          <Link href="/study" className="text-neon underline">공부하기 가이드</Link>
+        </p>
         <p className="text-sm text-paper/60 leading-relaxed mb-3">
           기술 도식 너머의 5일짜리 이야기가 궁금하면
         </p>
