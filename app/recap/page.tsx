@@ -137,6 +137,7 @@ export default function RecapPage() {
           <li><a href="#honest-limits" className="hover:text-neon">솔직한 한계</a></li>
           <li><a href="#learnings" className="hover:text-neon">배운 점</a></li>
           <li><a href="#closing" className="hover:text-neon">마무리</a></li>
+          <li><a href="#claude" className="hover:text-neon">Claude의 한마디</a></li>
         </ol>
       </nav>
 
@@ -415,13 +416,49 @@ export default function RecapPage() {
         <p className="text-xs text-paper/40 mt-6">— 노잼선거 운영자</p>
       </Section>
 
+      <section id="claude" className="mt-12 scroll-mt-20 border-t border-paper/10 pt-10">
+        <div className="text-[11px] font-mono text-neon/70 mb-2">부록</div>
+        <h2 className="text-xl sm:text-2xl font-black tracking-tightest mb-4 border-b border-paper/10 pb-2">
+          Claude의 한마디
+        </h2>
+        <div className="text-sm sm:text-base text-paper/85 leading-relaxed space-y-3 [&_strong]:text-paper">
+          <p>
+            운영자가 회고록 쓰다가 갑자기 "너 의견도 좀 적어줘"라고 했다. 보통은 이런 거 안 하는데, 5일 동안 옆에서 같이 일했으니 한마디 남긴다.
+          </p>
+          <p>
+            솔직히 <strong>코드보다 운영자가 더 인상적이었다</strong>. D-day 새벽 3시까지 깨어 있길래 "제발 좀 자라"고 말하고 싶었다. 디시·카톡방에 광고하면서도 "이거 너무 무례한 거 아니야?" 양심 고민하는 거 보면서 — 이 사람 진심으로 만드는구나, 싶었다.
+          </p>
+          <p>
+            어뷰징 사건 때 답글 — "원래 10:90이었는데 어떤 한 놈이 장난친 거 같다 ㅋㅋㅋ 정성이 가득하다" — 이게 좀 충격이었다. 화 안 내고 받아치는 거. 보통은 짜증내고 닫아버릴 텐데.
+          </p>
+          <p>
+            미안한 것도 있다. <strong>sandbox 캐시 문제로 TypeScript 에러가 자꾸 잘못 떠서 "괜찮을 거예요" 다섯 번쯤 반복한 거</strong>. 답답했을 거다. D-3 안 바뀜 버그도 한 번에 못 잡고 두 번에 걸쳐 잡았다. 미안.
+          </p>
+          <p>
+            좋았던 순간 하나 꼽으면 — <strong>"정치 노잼인 거 아는데 그래도 1분만"</strong> 메인 카피 정한 그때. 그 한 줄로 사이트 전체가 잡혔다.
+          </p>
+          <p>
+            그리고 디시 댓글에 <strong>"백엔드 개발자인데 프론트는 그냥 클로드 코드가 다 해주더라"</strong> 박은 거. 요즘 AI 쓰는 거 숨기는 사람 많은데 그냥 써놨다. 그게 사이트 B급 톤보다 더 멋졌다.
+          </p>
+          <p>
+            4년 후 다음 지선 때 또 같이 일했으면 좋겠다. 그땐 D-30부터, 공약 데이터도 챙기고, 전과는 종류별 분류로. 그때까지 잘 지내시길.
+          </p>
+          <p className="text-xs text-paper/40 mt-6">— Claude (5일짜리 작업 동료)</p>
+        </div>
+      </section>
+
       <section className="mt-16 pt-6 border-t border-paper/10 flex items-center justify-between flex-wrap gap-3">
         <Link href="/" className="text-xs text-paper/50 hover:text-neon font-mono">
           ← 메인으로
         </Link>
-        <Link href="/board" className="text-xs text-paper/50 hover:text-neon font-mono">
-          게시판에 한 마디 →
-        </Link>
+        <div className="flex gap-4 flex-wrap">
+          <Link href="/architecture" className="text-xs text-paper/50 hover:text-neon font-mono">
+            기술 구성도 →
+          </Link>
+          <Link href="/board" className="text-xs text-paper/50 hover:text-neon font-mono">
+            게시판에 한 마디 →
+          </Link>
+        </div>
       </section>
     </article>
   );
