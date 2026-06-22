@@ -289,7 +289,7 @@ export default function StudyPage() {
           노잼선거 코드를 본인이 직접 설명할 수 있도록 정리한 학습 가이드. 백엔드(SpringBoot 등) 개발자가 풀스택으로 넘어가는 다리.
         </p>
         <p className="text-[11px] text-paper/40 mt-2 leading-relaxed">
-          ※ 각 영역은 "노잼선거 어디에 쓰였나 → 공부 자료 → 본인 이해 체크 질문" 순. 우선순위 라벨(필수/중요/보너스)도 표시.
+          ※ 위쪽: 10개 학습 영역 (코드 위치 + 공부 자료 + 체크 질문). 아래쪽: 면접 예상 질문 25개.
         </p>
       </header>
 
@@ -363,6 +363,98 @@ export default function StudyPage() {
             </div>
           </article>
         ))}
+      </section>
+
+      {/* 면접 예상 질문 */}
+      <section className="mb-10 border-t border-paper/10 pt-8">
+        <div className="text-[11px] font-mono text-neon/70 mb-2">실전</div>
+        <h2 className="text-xl sm:text-2xl font-black tracking-tightest mb-3">
+          면접 예상 질문 <span className="text-paper/40 text-sm font-mono">25개</span>
+        </h2>
+        <p className="text-sm text-paper/70 leading-relaxed mb-6">
+          면접관 입장에서 이 프로젝트로 물어볼 만한 질문들. 답변을 미리 적어두고 시뮬레이션해보세요. <strong className="text-paper">⭐는 자주 받는 핵심 질문.</strong>
+        </p>
+
+        <div className="space-y-6">
+          {/* A. 자기소개 */}
+          <div>
+            <div className="text-xs font-mono text-neon/80 mb-2">A. 자기소개 · 프로젝트 개요</div>
+            <ol className="text-sm text-paper/80 list-decimal pl-5 space-y-2">
+              <li>⭐ 노잼선거를 한 문장으로 설명해주세요. <span className="text-paper/50">(엘리베이터 피치 — "1분만 보면 알 수 있게 만든 시민 선거 사이트")</span></li>
+              <li>⭐ 왜 이 프로젝트를 시작했어요? <span className="text-paper/50">(개인 동기 + 시민 가치 둘 다)</span></li>
+              <li>혼자 만든 거예요? 팀이 몇 명?</li>
+              <li>⭐ 5일 만에 만든 거 맞나요? 어떻게 가능했어요? <span className="text-paper/50">(AI 활용 솔직히 인정 + 의사결정은 본인)</span></li>
+            </ol>
+          </div>
+
+          {/* B. 기술 스택 */}
+          <div>
+            <div className="text-xs font-mono text-neon/80 mb-2">B. 기술 스택 결정</div>
+            <ol className="text-sm text-paper/80 list-decimal pl-5 space-y-2" start={5}>
+              <li>⭐ 왜 Next.js 14 App Router를 선택했나요? Pages Router랑 차이는?</li>
+              <li>왜 Vercel? AWS·GCP 같은 다른 옵션은 고려 안 했나요?</li>
+              <li>⭐ 왜 6,714명 데이터를 정적 JSON으로 했나요? PostgreSQL·MySQL 안 쓰고?</li>
+              <li>Upstash Redis와 일반 Redis 차이는? 왜 서버리스 KV?</li>
+              <li>Tailwind CSS 선택 이유? styled-components·CSS Modules 비교했어요?</li>
+            </ol>
+          </div>
+
+          {/* C. 아키텍처 */}
+          <div>
+            <div className="text-xs font-mono text-neon/80 mb-2">C. 아키텍처 결정</div>
+            <ol className="text-sm text-paper/80 list-decimal pl-5 space-y-2" start={10}>
+              <li>⭐ Server Component와 Client Component를 어떤 기준으로 나눴어요?</li>
+              <li>전체 데이터 흐름을 설명해주세요. 사용자 클릭부터 응답까지.</li>
+              <li>⭐ 관리자 인증 시스템 설계를 설명해주세요. <span className="text-paper/50">(쿠키 + 환경변수 + rate limit)</span></li>
+              <li>마스킹 시스템의 트레이드오프는? 왜 클라이언트 마스킹이 아니라 서버 마스킹?</li>
+              <li>Rate limiting 어떻게 구현했나요? Upstash 사용한 이유?</li>
+            </ol>
+          </div>
+
+          {/* D. 문제 해결 */}
+          <div>
+            <div className="text-xs font-mono text-neon/80 mb-2">D. 문제 해결 (사건들)</div>
+            <ol className="text-sm text-paper/80 list-decimal pl-5 space-y-2" start={15}>
+              <li>⭐ 트래픽 폭증 시 어떻게 대응했나요? <span className="text-paper/50">(Vercel Edge + ISR + 모니터링)</span></li>
+              <li>⭐ 어뷰징 사건이 있었다고 하던데 어떻게 발견·대응했나요? 막을 수 있었나요?</li>
+              <li>D-day 카운트다운이 안 바뀌는 버그가 있었다고요? 원인은? 어떻게 해결?</li>
+              <li>⭐ 선관위 데이터가 사라진 후 개인정보 보호 어떻게 처리했나요?</li>
+              <li>SSR Hydration mismatch 경험 있나요? 어떻게 디버깅?</li>
+            </ol>
+          </div>
+
+          {/* E. 운영·마케팅 */}
+          <div>
+            <div className="text-xs font-mono text-neon/80 mb-2">E. 운영 · 마케팅 · 사용자</div>
+            <ol className="text-sm text-paper/80 list-decimal pl-5 space-y-2" start={20}>
+              <li>⭐ 어떻게 트래픽을 모았나요? 광고 없이 3,705명?</li>
+              <li>사용자 피드백을 어떻게 수집·반영했나요?</li>
+              <li>SEO를 어떻게 신경 썼나요? 5일 만에 검색 1위가 가능?</li>
+            </ol>
+          </div>
+
+          {/* F. AI / 메타 */}
+          <div>
+            <div className="text-xs font-mono text-neon/80 mb-2">F. AI 활용 · 시니어급 질문</div>
+            <ol className="text-sm text-paper/80 list-decimal pl-5 space-y-2" start={23}>
+              <li>⭐ AI(Claude Code 등)를 어디까지 활용했나요? 코드를 본인이 짠 게 아니라면 본인 프로젝트라고 할 수 있나요? <span className="text-paper/50">(가장 첨예한 질문. 솔직 + 의사결정 강조)</span></li>
+              <li>이 프로젝트의 기술 부채는? 다시 만든다면 무엇을 바꿀 건가요?</li>
+              <li>스케일링 한계는 어디? 10만 명 동시 접속이면?</li>
+            </ol>
+          </div>
+        </div>
+
+        {/* 답변 팁 */}
+        <div className="mt-8 border border-paper/15 rounded-lg p-4 bg-paper/[0.02]">
+          <div className="text-[11px] font-mono text-neon/70 mb-2">답변 작성 팁</div>
+          <ul className="text-sm text-paper/75 list-disc pl-5 space-y-1.5">
+            <li><strong className="text-paper">STAR 구조</strong>: Situation → Task → Action → Result. 사건들 질문(D-day 버그·어뷰징 등)은 이 구조가 잘 맞음.</li>
+            <li><strong className="text-paper">트레이드오프 명시</strong>: "왜 X 선택?" → "Y와 비교했을 때 Z 이유로 X. 다만 W는 단점."</li>
+            <li><strong className="text-paper">숫자 인용</strong>: "트래픽 3,705명", "5일", "6,714명", "₩2,300/월" — 구체 숫자가 신뢰감.</li>
+            <li><strong className="text-paper">AI 활용 솔직히</strong>: "프론트 코드는 Claude Code 도움을 많이 받았지만, 아키텍처·데이터 모델·보안 결정·운영은 제가 직접 했습니다." 이게 정답.</li>
+            <li><strong className="text-paper">모르는 거 인정</strong>: 모르면 "그 부분은 학습이 더 필요합니다, 다만 이렇게 추정합니다..." 솔직히. 면접관이 더 좋아함.</li>
+          </ul>
+        </div>
       </section>
 
       {/* 마무리 */}

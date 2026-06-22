@@ -455,6 +455,9 @@ export default function RecapPage() {
           <Link href="/architecture" className="text-xs text-paper/50 hover:text-neon font-mono">
             기술 구성도 →
           </Link>
+          <Link href="/study" className="text-xs text-paper/50 hover:text-neon font-mono">
+            공부하기 →
+          </Link>
           <Link href="/board" className="text-xs text-paper/50 hover:text-neon font-mono">
             게시판에 한 마디 →
           </Link>
